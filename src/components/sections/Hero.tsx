@@ -1,20 +1,31 @@
 import { ShimmerButton } from "../ui/shimmer-button";
 import { BlurIn } from "../ui/blur-in";
+import { motion } from "framer-motion";
 
 export function Hero() {
   return (
     <header className="relative min-h-[100svh] flex items-center pt-20 overflow-hidden bg-bg-base">
-      <div className="absolute inset-0 z-0">
+      <motion.div 
+        initial={{ scale: 1.1, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="absolute inset-0 z-0"
+      >
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(10,10,10,0.6)_0%,rgba(10,10,10,0.85)_50%,rgba(10,10,10,1)_100%)] z-10" />
         <img
           src="/images/12719a8da1442e59f47f50312a47a651_fit.jpg"
           alt="Estrutura de aço serralharia Rinos"
           className="w-full h-full object-cover animate-img-ken"
         />
-      </div>
+      </motion.div>
 
       <div className="container relative z-10 mx-auto px-8 max-w-[1200px]">
-        <div className="max-w-[700px] animate-fade-up">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2, ease: [0.2, 0.65, 0.3, 0.9] }}
+          className="max-w-[700px]"
+        >
           <BlurIn
             word="Aço Inox, Ferro"
             className="font-display text-[clamp(3.5rem,8vw,6.5rem)] leading-[0.95] tracking-[0.01em] uppercase text-white m-0 text-left"
@@ -48,7 +59,7 @@ export function Hero() {
               Ver Portfólio
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </header>
   );

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { animate, useInView } from "framer-motion";
+import { animate, useInView, motion } from "framer-motion";
 
 function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -27,7 +27,12 @@ export function Sobre() {
     <section id="sobre" className="py-[120px] bg-bg-sec border-y border-white/[0.04]">
       <div className="container max-w-[1200px] mx-auto px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-[80px] lg:gap-[120px] items-center">
-          <div className="animate-fade-up">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <div className="section-tag">A Empresa</div>
             <h2 className="section-h2">
               Precisão.<br/>Durabilidade.<br/><span className="text-accent">Aço Inox.</span>
@@ -43,9 +48,15 @@ export function Sobre() {
             <a href="#contacto" className="btn btn-ghost mt-10">
               Fale connosco hoje
             </a>
-          </div>
+          </motion.div>
 
-          <div className="relative animate-fade-up">
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="relative"
+          >
             <div className="absolute -top-10 -right-4 md:-left-10 w-[140px] h-[140px] border border-accent/20 rounded-full flex flex-col items-center justify-center text-center bg-bg-sec/90 backdrop-blur-md z-30 shadow-xl">
               <span className="text-accent font-display text-[2.5rem] leading-none mb-1">+9</span>
               <span className="text-[0.6rem] tracking-[0.1em] text-white/90 uppercase font-medium leading-[1.3]">Anos<br/>Experiência</span>
@@ -59,19 +70,31 @@ export function Sobre() {
               />
             </div>
             
-            <div className="absolute -bottom-12 -left-4 md:-left-16 w-3/5 md:w-2/3 bg-[#0a0a0a] p-2 md:p-3 shadow-2xl z-20 border border-white/10 rounded-[2px]">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+              className="absolute -bottom-12 -left-4 md:-left-16 w-3/5 md:w-2/3 bg-[#0a0a0a] p-2 md:p-3 shadow-2xl z-20 border border-white/10 rounded-[2px]"
+            >
               <img 
                 src="/images/23e710ebc18b2db42414f0c4805a3217_493x277_0x1_493x278_cropb059.jpg" 
                 alt="Carrinha de Serviço Serralharia Rinos" 
                 className="w-full h-auto object-cover rounded-[1px]"
               />
-            </div>
+            </motion.div>
             
             <div className="absolute -bottom-8 -right-8 w-[200px] h-[200px] border-b-2 border-r-2 border-accent/30 hidden md:block"></div>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="mt-24 pt-16 border-t border-white/[0.06] grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-6 animate-fade-up">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8 }}
+          className="mt-24 pt-16 border-t border-white/[0.06] grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-6"
+        >
           <div className="flex flex-col gap-2">
             <AnimatedCounter value={1200} suffix="+" />
             <div className="text-[0.65rem] tracking-[0.2em] uppercase text-dim font-bold">Obras Concluídas</div>
@@ -88,7 +111,7 @@ export function Sobre() {
             <AnimatedCounter value={9} suffix=" Anos" />
             <div className="text-[0.65rem] tracking-[0.2em] uppercase text-dim font-bold">Experiência no Ramo</div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

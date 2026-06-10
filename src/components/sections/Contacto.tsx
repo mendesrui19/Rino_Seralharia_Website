@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { ShimmerButton } from "../ui/shimmer-button";
 
 export function Contacto() {
@@ -29,7 +30,12 @@ export function Contacto() {
       <div className="container max-w-[1200px] mx-auto px-8 relative">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-[80px] lg:gap-[120px]">
           
-          <div className="animate-fade-up">
+          <motion.div 
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <div className="section-tag">Fale Connosco</div>
             <h2 className="section-h2">Vamos<br/><span className="text-accent">Conversar</span></h2>
             <p className="section-desc mb-10">Tem um projeto em mente? Descreva-nos o que precisa e damos vida à sua ideia.</p>
@@ -86,7 +92,13 @@ export function Contacto() {
               </a>
             </div>
 
-            <div className="mt-12 rounded-[2px] overflow-hidden border border-white/5 relative group animate-fade-up" style={{ animationDelay: '0.1s' }}>
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              className="mt-12 rounded-[2px] overflow-hidden border border-white/5 relative group"
+            >
               <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none duration-500"></div>
               <img 
                 src="/images/96e228a03a061457d15673e6198d0afa_493x277_0x1_493x278_cropb059.jpg" 
@@ -96,10 +108,15 @@ export function Contacto() {
               <div className="absolute bottom-4 left-4 bg-bg-sec/90 backdrop-blur-md px-4 py-2 border border-white/10 text-[0.7rem] uppercase tracking-widest text-white/90 z-20">
                 A nossa oficina
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="animate-fade-up" style={{ animationDelay: '0.2s' }}>
+          <motion.div 
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          >
             {!submitted ? (
               <form onSubmit={handleSubmit} className="bg-bg-sec p-10 md:p-12 border border-white/[0.04]">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -153,7 +170,7 @@ export function Contacto() {
                 <p className="text-dim">Obrigado pelo contacto. Entraremos em contacto brevemente.</p>
               </div>
             )}
-          </div>
+          </motion.div>
 
         </div>
       </div>

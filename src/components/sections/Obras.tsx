@@ -35,7 +35,13 @@ export function Obras() {
   return (
     <section id="obras" className="py-[120px] bg-bg-base border-t border-white/[0.04]">
       <div className="container max-w-[1200px] mx-auto px-8">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-[60px] gap-6 animate-fade-up">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col md:flex-row justify-between items-end mb-[60px] gap-6"
+        >
           <div>
             <div className="section-tag">Portfólio</div>
             <h2 className="section-h2">As Nossas<br/><span className="text-accent">Obras</span></h2>
@@ -43,12 +49,16 @@ export function Obras() {
           <p className="text-[0.82rem] text-dim text-right max-w-[260px]">
             Todas as fotos correspondem a trabalhos reais realizados pela nossa empresa.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-[300px_300px] gap-[15px] animate-fade-up mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-[300px_300px] gap-[15px] mb-12">
           {featuredImages.map((img, i) => (
-            <div 
+            <motion.div 
               key={i} 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
               className={`relative overflow-hidden group bg-bg-ter rounded-[2px] ${i === 0 ? 'col-span-2 row-span-2' : ''}`}
             >
               <img 
@@ -61,7 +71,7 @@ export function Obras() {
                   {img.label}
                 </span>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
