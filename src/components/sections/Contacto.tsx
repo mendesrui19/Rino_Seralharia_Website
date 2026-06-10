@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ShimmerButton } from "../ui/shimmer-button";
 
 export function Contacto() {
   const [submitted, setSubmitted] = useState(false);
@@ -134,10 +135,15 @@ export function Contacto() {
                   <label className="text-[0.65rem] tracking-[0.1em] uppercase text-dim font-bold" htmlFor="f-msg">Descrição *</label>
                   <textarea className="w-full bg-transparent border border-white/10 rounded-[2px] py-3.5 px-4 text-[0.95rem] text-white focus:outline-none focus:border-accent focus:bg-white/[0.02] transition-colors min-h-[140px] resize-y" id="f-msg" name="mensagem" placeholder="Descreva o trabalho que pretende..." required></textarea>
                 </div>
-                <button type="submit" className="btn btn-gold w-full flex justify-center">
+                <ShimmerButton 
+                  type="submit"
+                  background="#c8a96e"
+                  shimmerColor="#ffffff"
+                  className="text-bg-base font-bold tracking-[0.16em] uppercase text-sm w-full py-4 shadow-[0_0_40px_rgba(200,169,110,0.5)] hover:-translate-y-1 flex items-center justify-center gap-2"
+                >
                   Enviar Pedido
                   <svg viewBox="0 0 16 16" fill="none" className="w-[14px] h-[14px]"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                </button>
+                </ShimmerButton>
                 <p className="text-center text-[0.72rem] text-dim mt-4">Orçamento gratuito · Resposta em menos de 24h</p>
               </form>
             ) : (

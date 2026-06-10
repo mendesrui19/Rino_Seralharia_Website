@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Ruler, Key, Clock, Building } from "lucide-react";
+import { ShimmerButton } from "../ui/shimmer-button";
 
 export function PorqueNos() {
   const features = [
@@ -85,10 +86,15 @@ export function PorqueNos() {
             <p className="text-[0.88rem] text-text-dark-sec leading-[1.7] mb-6">
               Visita ao local e orçamento sem custos e sem compromisso. Resposta em menos de 24 horas.
             </p>
-            <a href="tel:+351913255102" className="btn btn-gold w-full flex justify-center shadow-[0_4px_20px_rgba(200,169,110,0.25)]">
+            <ShimmerButton
+              href="tel:+351913255102"
+              background="#c8a96e"
+              shimmerColor="#ffffff"
+              className="text-bg-base font-bold tracking-[0.16em] uppercase text-sm w-full py-4 shadow-[0_0_40px_rgba(200,169,110,0.5)] hover:-translate-y-1 flex items-center justify-center gap-2"
+            >
               <svg viewBox="0 0 16 16" fill="none" className="w-[14px] h-[14px]"><path d="M13.5 10.5c-.5-.5-2-.5-2.5 0l-.8.8c-1-.5-2-1.5-2.5-2.5l.8-.8c.5-.5.5-2 0-2.5L7 3.5c-.5-.5-1.5-.5-2 0L3.5 5C3 6 3.5 9 6 11.5S10 13 11 12.5l1.5-1.5c.5-.5.5-1.5 0-2z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>
               Ligar Agora — 913 255 102
-            </a>
+            </ShimmerButton>
           </motion.div>
         </div>
       </div>

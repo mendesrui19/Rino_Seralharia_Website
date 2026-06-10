@@ -1,7 +1,7 @@
 import React from "react";
 import { cn } from "../../lib/utils";
 
-export interface ShimmerButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ShimmerButtonProps extends React.HTMLAttributes<HTMLElement> {
   shimmerColor?: string;
   shimmerSize?: string;
   borderRadius?: string;
@@ -9,9 +9,13 @@ export interface ShimmerButtonProps extends React.ButtonHTMLAttributes<HTMLButto
   background?: string;
   className?: string;
   children?: React.ReactNode;
+  href?: string;
+  target?: string;
+  rel?: string;
+  type?: "submit" | "reset" | "button";
 }
 
-export const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
+export const ShimmerButton = React.forwardRef<HTMLElement, ShimmerButtonProps>(
   (
     {
       shimmerColor = "#ffffff",
@@ -21,12 +25,16 @@ export const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonPr
       background = "rgba(0, 0, 0, 1)",
       className,
       children,
+      href,
       ...props
     },
     ref,
   ) => {
+    const Component = href ? "a" : "button";
+    
     return (
-      <button
+      <Component
+        href={href}
         style={
           {
             "--spread": "90deg",
@@ -41,7 +49,7 @@ export const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonPr
           "group relative z-0 flex cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap border border-white/10 px-6 py-3 text-white [background:var(--bg)] [border-radius:var(--radius)] dark:text-black transform-gpu transition-transform duration-300 ease-in-out active:translate-y-[1px]",
           className,
         )}
-        ref={ref}
+        ref={ref as any}
         {...props}
       >
         <div
@@ -69,7 +77,7 @@ export const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonPr
             "absolute -z-20 [background:var(--bg)] [border-radius:var(--radius)] [inset:var(--cut)]",
           )}
         />
-      </button>
+      </Component>
     );
   },
 );

@@ -31,18 +31,17 @@ export function Hero() {
           
           <div className="flex flex-wrap gap-4 items-center">
             <ShimmerButton
+              href="#contacto"
               shimmerSize="0.1em"
               shimmerColor="#ffffff"
               shimmerDuration="2.5s"
               background="#c8a96e"
-              className="text-bg-base text-xs font-bold uppercase tracking-widest px-8 py-3.5 hover:-translate-y-0.5 transition-transform"
+              className="text-bg-base text-xs font-bold uppercase tracking-widest px-8 py-3.5 hover:-translate-y-0.5 transition-transform flex items-center gap-2 shadow-[0_0_40px_rgba(200,169,110,0.5)]"
             >
-              <a href="#contacto" className="flex items-center gap-2">
-                Pedir Orçamento Grátis
-                <svg viewBox="0 0 16 16" fill="none" className="w-[14px] h-[14px]">
-                  <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </a>
+              Pedir Orçamento Grátis
+              <svg viewBox="0 0 16 16" fill="none" className="w-[14px] h-[14px]">
+                <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </ShimmerButton>
             
             <a href="#obras" className="btn btn-ghost py-3.5">

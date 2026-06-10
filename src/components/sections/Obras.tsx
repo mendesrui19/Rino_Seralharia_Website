@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ShimmerButton } from '../ui/shimmer-button';
 
 export function Obras() {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
@@ -65,12 +66,14 @@ export function Obras() {
         </div>
 
         <div className="flex justify-center">
-          <button 
+          <ShimmerButton 
             onClick={() => setIsGalleryOpen(true)}
-            className="btn btn-primary min-w-[240px] shadow-[0_0_20px_rgba(207,178,85,0.15)]"
+            background="#c8a96e"
+            shimmerColor="#ffffff"
+            className="text-bg-base font-bold tracking-[0.16em] uppercase text-sm px-10 py-4 shadow-[0_0_40px_rgba(200,169,110,0.5)] hover:-translate-y-1"
           >
-            Ver Todas as Obras
-          </button>
+            VER O PORTEFÓLIO COMPLETO
+          </ShimmerButton>
         </div>
       </div>
 

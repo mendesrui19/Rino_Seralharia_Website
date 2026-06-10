@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { cn } from '../../lib/utils';
+import { ShimmerButton } from '../ui/shimmer-button';
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,12 +35,14 @@ export function Nav() {
               </li>
             ))}
             <li>
-              <a
+              <ShimmerButton
                 href="#contacto"
-                className="bg-accent text-bg-base text-[0.72rem] tracking-[0.16em] uppercase font-bold py-2.5 px-6 rounded-sm transition-all hover:bg-accent2 hover:-translate-y-0.5 inline-block"
+                background="#c8a96e"
+                shimmerColor="#ffffff"
+                className="text-bg-base text-[0.72rem] tracking-[0.16em] uppercase font-bold py-2.5 px-6 rounded-sm transition-all hover:-translate-y-0.5 inline-flex shadow-[0_0_20px_rgba(200,169,110,0.3)]"
               >
                 Pedir Orçamento
-              </a>
+              </ShimmerButton>
             </li>
           </ul>
           <button
@@ -70,13 +73,15 @@ export function Nav() {
             {item}
           </a>
         ))}
-        <a
+        <ShimmerButton
           href="#contacto"
-          onClick={closeMenu}
-          className="text-xl bg-accent text-bg-base py-3.5 px-10 rounded-sm font-bold font-display tracking-[0.08em]"
+          onClick={closeMenu as any}
+          background="#c8a96e"
+          shimmerColor="#ffffff"
+          className="text-xl text-bg-base py-3.5 px-10 rounded-sm font-bold font-display tracking-[0.08em] shadow-[0_0_20px_rgba(200,169,110,0.3)]"
         >
           Pedir Orçamento
-        </a>
+        </ShimmerButton>
       </div>
     </>
   );

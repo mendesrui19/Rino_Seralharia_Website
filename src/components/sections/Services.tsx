@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ShimmerButton } from "../ui/shimmer-button";
 
 const services = [
   { num: "01", name: "Estruturas Metálicas", desc: "Construção de estruturas em ferro, asnas, pilares, pilaretes e vigas estruturais." },
@@ -77,10 +78,15 @@ export function Services() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="flex justify-center mt-16"
         >
-          <a href="#contacto" className="btn btn-gold shadow-[0_4px_20px_rgba(200,169,110,0.2)]">
+          <ShimmerButton
+            href="#contacto"
+            background="#c8a96e"
+            shimmerColor="#ffffff"
+            className="text-bg-base font-bold tracking-[0.16em] uppercase text-sm px-10 py-4 shadow-[0_0_40px_rgba(200,169,110,0.5)] hover:-translate-y-1 flex items-center gap-2"
+          >
             Pedir Orçamento
             <svg viewBox="0 0 16 16" fill="none" className="w-[14px] h-[14px]"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-          </a>
+          </ShimmerButton>
         </motion.div>
       </div>
     </section>
