@@ -1,16 +1,8 @@
-import { useRef, useEffect } from "react";
 import { ShimmerButton } from "../ui/shimmer-button";
 import { BlurIn } from "../ui/blur-in";
 import { motion } from "framer-motion";
 
 export function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 0.5;
-    }
-  }, []);
 
   return (
     <header className="relative min-h-[100svh] flex items-center pt-20 overflow-hidden bg-bg-base">
@@ -22,7 +14,6 @@ export function Hero() {
       >
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(10,10,10,0.6)_0%,rgba(10,10,10,0.85)_50%,rgba(10,10,10,1)_100%)] z-10" />
         <video
-          ref={videoRef}
           src="/videos/hero_bg.mp4"
           autoPlay
           muted
