@@ -71,15 +71,15 @@ export function Contacto() {
                     <div className="text-[0.8rem] text-accent">+41º 02' 12.7", -8º 36' 16.5"</div>
                   </div>
                   {/* Small Workshop Photo */}
-                  <div className="rounded-[2px] overflow-hidden border border-white/5 relative group w-[180px] h-[110px] shrink-0 mt-2 sm:mt-0">
+                  <div className="rounded-[2px] overflow-hidden border border-white/5 relative group w-[260px] h-[160px] shrink-0 mt-4 sm:mt-0">
                     <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none duration-500"></div>
                     <img 
                       src="/images/96e228a03a061457d15673e6198d0afa_493x277_0x1_493x278_cropb059.jpg" 
                       alt="Instalações Serralharia Rinos" 
                       className="absolute inset-0 w-full h-full object-cover filter brightness-90 grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
                     />
-                    <div className="absolute bottom-2 left-2 bg-bg-sec/90 backdrop-blur-md px-2 py-1 border border-white/10 text-[0.55rem] uppercase tracking-widest text-white/90 z-20">
-                      A oficina
+                    <div className="absolute bottom-2 left-2 bg-bg-sec/90 backdrop-blur-md px-2.5 py-1 border border-white/10 text-[0.6rem] uppercase tracking-widest text-white/90 z-20">
+                      A nossa oficina
                     </div>
                   </div>
                 </div>
