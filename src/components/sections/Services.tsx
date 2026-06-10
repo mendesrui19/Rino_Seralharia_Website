@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShimmerButton } from "../ui/shimmer-button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -14,52 +14,28 @@ const services = [
   { num: "08", name: "Fabrico & Reparação", desc: "Preparação, montagem e reparação de todos os tipos de estruturas metálicas." },
 ];
 
+// Number of cards visible in the stack at once
+const VISIBLE_CARDS = 3;
+
 export function Services() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Autoplay logic
+  useEffect(() => {
+    if (isHovered) return;
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % services.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [isHovered]);
 
   const nextService = () => {
-    setDirection(1);
     setActiveIndex((prev) => (prev + 1) % services.length);
   };
 
   const prevService = () => {
-    setDirection(-1);
     setActiveIndex((prev) => (prev - 1 + services.length) % services.length);
-  };
-
-  // The Slash animation variants
-  const slashVariants = {
-    initial: (dir: number) => ({
-      clipPath: dir > 0 
-        ? "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)" // start from right closed
-        : "polygon(0 0, 0 0, 0 100%, 0 100%)", // start from left closed
-      opacity: 0,
-      scale: 0.95,
-      filter: "brightness(2) contrast(1.5)"
-    }),
-    animate: {
-      clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)", // fully open
-      opacity: 1,
-      scale: 1,
-      filter: "brightness(1) contrast(1)",
-      transition: { 
-        duration: 0.8, 
-        ease: [0.76, 0, 0.24, 1] as any,
-      }
-    },
-    exit: (dir: number) => ({
-      clipPath: dir > 0
-        ? "polygon(0 0, 0 0, -20% 100%, -20% 100%)" // slash left
-        : "polygon(120% 0, 120% 0, 100% 100%, 100% 100%)", // slash right
-      opacity: 0,
-      scale: 1.05,
-      filter: "brightness(0.5)",
-      transition: { 
-        duration: 0.6, 
-        ease: [0.76, 0, 0.24, 1] as any 
-      }
-    })
   };
 
   return (
@@ -85,85 +61,105 @@ export function Services() {
           </p>
         </motion.div>
 
-        {/* Book / Interactive Panel */}
-        <div className="relative max-w-[800px] mx-auto min-h-[400px]">
-          
-          <AnimatePresence custom={direction} mode="popLayout">
-            <motion.div
-              key={activeIndex}
-              custom={direction}
-              variants={slashVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className="w-full bg-bg-sec border border-white/[0.06] rounded-xl p-10 md:p-16 relative overflow-hidden group shadow-[0_0_50px_rgba(0,0,0,0.5)]"
-            >
-              {/* Slash overlay effect that flashes quickly during transition */}
-              <motion.div 
-                initial={{ opacity: 1, x: direction > 0 ? "100%" : "-100%", skewX: -20 }}
-                animate={{ opacity: 0, x: direction > 0 ? "-100%" : "100%", skewX: -20 }}
-                transition={{ duration: 0.8, ease: "circOut" }}
-                className="absolute inset-0 w-[50%] bg-gradient-to-r from-transparent via-accent/30 to-transparent pointer-events-none z-0"
-              />
-
-              <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-16">
-                
-                {/* Left side: Big Number */}
-                <div className="flex-shrink-0">
-                  <span className="font-display text-[8rem] md:text-[12rem] leading-none text-white/5 font-bold tracking-tighter select-none">
-                    {services[activeIndex].num}
-                  </span>
-                </div>
-
-                {/* Right side: Content */}
-                <div className="flex-1">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="h-[2px] w-12 bg-accent"></div>
-                    <span className="text-accent text-sm tracking-[0.2em] uppercase font-bold">Serviço {services[activeIndex].num}</span>
-                  </div>
-                  
-                  <h3 className="font-display text-3xl md:text-5xl tracking-[0.02em] mb-6 text-white leading-[1.1]">
-                    {services[activeIndex].name}
-                  </h3>
-                  
-                  <p className="text-[1.1rem] md:text-[1.2rem] text-dim leading-[1.8] max-w-[400px]">
-                    {services[activeIndex].desc}
-                  </p>
-                </div>
-
-              </div>
+        {/* 3D Card Stack */}
+        <div 
+          className="relative max-w-[800px] mx-auto min-h-[420px] flex items-center justify-center"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <AnimatePresence mode="popLayout">
+            {services.map((service, index) => {
+              // Calculate distance from active index
+              let offset = (index - activeIndex + services.length) % services.length;
               
-              {/* Progress Bar inside card */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/5">
-                <motion.div 
-                  initial={{ width: 0 }}
-                  animate={{ width: `${((activeIndex + 1) / services.length) * 100}%` }}
-                  transition={{ duration: 0.5 }}
-                  className="h-full bg-accent"
-                />
-              </div>
-            </motion.div>
-          </AnimatePresence>
+              // Only render the visible cards to save performance
+              if (offset > VISIBLE_CARDS && offset !== services.length - 1) return null;
+              
+              // If it's the last card animating out, it might temporarily have offset like services.length - 1
+              // We treat it as offset -1 for animation purposes if needed, but framer-motion AnimatePresence handles exits
+              
+              const isFront = offset === 0;
 
-          {/* Controls */}
-          <div className="flex items-center justify-between mt-8 relative z-20">
+              return (
+                <motion.div
+                  key={service.num}
+                  layout
+                  initial={{ 
+                    opacity: 0, 
+                    y: 100, 
+                    scale: 0.9 
+                  }}
+                  animate={{ 
+                    opacity: offset >= VISIBLE_CARDS ? 0 : 1 - (offset * 0.25),
+                    y: offset * 25, // push down slightly
+                    scale: 1 - (offset * 0.05), // shrink slightly
+                    zIndex: services.length - offset,
+                  }}
+                  exit={{ 
+                    opacity: 0, 
+                    y: -100, // float away upwards
+                    scale: 1.1,
+                    filter: "blur(10px)",
+                    transition: { duration: 0.4 }
+                  }}
+                  transition={{ 
+                    duration: 0.6, 
+                    ease: [0.32, 0.72, 0, 1] 
+                  }}
+                  className={`absolute w-full bg-bg-sec border ${isFront ? 'border-accent/40 shadow-[0_20px_50px_rgba(0,0,0,0.8)]' : 'border-white/[0.06] shadow-xl'} rounded-xl p-10 md:p-16 overflow-hidden`}
+                >
+                  <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-16">
+                    
+                    {/* Left side: Big Number */}
+                    <div className="flex-shrink-0">
+                      <span className={`font-display text-[8rem] md:text-[12rem] leading-none font-bold tracking-tighter select-none transition-colors duration-500 ${isFront ? 'text-accent/10' : 'text-white/5'}`}>
+                        {service.num}
+                      </span>
+                    </div>
+
+                    {/* Right side: Content */}
+                    <div className="flex-1">
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className={`h-[2px] w-12 ${isFront ? 'bg-accent' : 'bg-white/20'}`}></div>
+                        <span className={`${isFront ? 'text-accent' : 'text-white/40'} text-sm tracking-[0.2em] uppercase font-bold transition-colors duration-500`}>
+                          Serviço {service.num}
+                        </span>
+                      </div>
+                      
+                      <h3 className={`font-display text-3xl md:text-5xl tracking-[0.02em] mb-6 leading-[1.1] transition-colors duration-500 ${isFront ? 'text-white' : 'text-white/60'}`}>
+                        {service.name}
+                      </h3>
+                      
+                      <p className={`text-[1.1rem] md:text-[1.2rem] leading-[1.8] max-w-[400px] transition-colors duration-500 ${isFront ? 'text-dim' : 'text-white/30'}`}>
+                        {service.desc}
+                      </p>
+                    </div>
+
+                  </div>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+        </div>
+
+        {/* Controls */}
+        <div className="flex flex-col items-center mt-12 relative z-20">
+          
+          <div className="flex items-center gap-8 mb-6">
             <button 
               onClick={prevService}
-              className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-accent hover:border-accent/50 hover:bg-accent/10 transition-all duration-300 backdrop-blur-sm"
+              className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-accent hover:border-accent/50 hover:bg-accent/10 transition-all duration-300"
               aria-label="Serviço Anterior"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-5 h-5" />
             </button>
             
             <div className="flex gap-2">
               {services.map((_, idx) => (
                 <button
                   key={idx}
-                  onClick={() => {
-                    setDirection(idx > activeIndex ? 1 : -1);
-                    setActiveIndex(idx);
-                  }}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${idx === activeIndex ? "bg-accent scale-125" : "bg-white/20 hover:bg-white/50"}`}
+                  onClick={() => setActiveIndex(idx)}
+                  className={`w-2 h-2 rounded-full transition-all duration-500 ${idx === activeIndex ? "bg-accent scale-150" : "bg-white/20 hover:bg-white/50"}`}
                   aria-label={`Ir para serviço ${idx + 1}`}
                 />
               ))}
@@ -171,13 +167,16 @@ export function Services() {
 
             <button 
               onClick={nextService}
-              className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-accent hover:border-accent/50 hover:bg-accent/10 transition-all duration-300 backdrop-blur-sm"
+              className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-accent hover:border-accent/50 hover:bg-accent/10 transition-all duration-300"
               aria-label="Próximo Serviço"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-5 h-5" />
             </button>
           </div>
 
+          <div className="text-[0.7rem] uppercase tracking-[0.2em] text-white/20">
+            {isHovered ? "Pausado para leitura" : "Passagem Automática"}
+          </div>
         </div>
 
         {/* CTA */}
