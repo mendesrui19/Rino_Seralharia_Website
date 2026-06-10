@@ -2,16 +2,7 @@ import { useState, useEffect } from 'react';
 import { cn } from '../../lib/utils';
 
 export function Nav() {
-  const [isStuck, setIsStuck] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsStuck(window.scrollY > 60);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
