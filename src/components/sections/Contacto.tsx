@@ -64,22 +64,21 @@ export function Contacto() {
                 <div className="w-[36px] h-[36px] rounded-full border border-white/10 flex items-center justify-center flex-shrink-0 text-accent bg-bg-sec">
                   <svg viewBox="0 0 16 16" fill="none" className="w-[14px] h-[14px]"><path d="M8 1a5 5 0 00-5 5c0 4 5 9 5 9s5-5 5-9a5 5 0 00-5-5z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/><circle cx="8" cy="6" r="1.5" stroke="currentColor" strokeWidth="1.3"/></svg>
                 </div>
-                <div className="flex flex-col sm:flex-row items-start gap-6">
-                  <div>
-                    <div className="text-[0.65rem] tracking-[0.15em] uppercase text-dim font-bold mb-1">Morada & GPS</div>
-                    <div className="text-[0.95rem] text-[#e8e6e1]/80 leading-[1.6] mb-2">Rua do Romanço, nº 333, Lote 2 A<br/>Zona Ind. de Vila Nova<br/>4805-623 Vila Nova de Sande, Guimarães</div>
-                    <div className="text-[0.8rem] text-accent">+41º 02' 12.7", -8º 36' 16.5"</div>
-                  </div>
-                  {/* Small Workshop Photo */}
-                  <div className="rounded-[2px] overflow-hidden border border-white/5 relative group w-[260px] h-[160px] shrink-0 mt-4 sm:mt-0">
+                <div className="flex-1">
+                  <div className="text-[0.65rem] tracking-[0.15em] uppercase text-dim font-bold mb-1">Morada & GPS</div>
+                  <div className="text-[0.95rem] text-[#e8e6e1]/80 leading-[1.6] mb-2">Rua do Romanço, nº 333, Lote 2 A<br/>Zona Ind. de Vila Nova<br/>4805-623 Vila Nova de Sande, Guimarães</div>
+                  <div className="text-[0.8rem] text-accent mb-4">+41º 02' 12.7", -8º 36' 16.5"</div>
+                  
+                  {/* Workshop Photo as Location Preview */}
+                  <div className="rounded-[4px] overflow-hidden border border-white/5 relative group w-full max-w-[340px] aspect-[16/9]">
                     <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none duration-500"></div>
                     <img 
                       src="/images/96e228a03a061457d15673e6198d0afa_493x277_0x1_493x278_cropb059.jpg" 
                       alt="Instalações Serralharia Rinos" 
                       className="absolute inset-0 w-full h-full object-cover filter brightness-90 grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
                     />
-                    <div className="absolute bottom-2 left-2 bg-bg-sec/90 backdrop-blur-md px-2.5 py-1 border border-white/10 text-[0.6rem] uppercase tracking-widest text-white/90 z-20">
-                      A nossa oficina
+                    <div className="absolute bottom-3 left-3 bg-bg-sec/90 backdrop-blur-md px-3 py-1.5 border border-white/10 text-[0.6rem] uppercase tracking-widest text-white/90 z-20 rounded-sm">
+                      A Nossa Oficina
                     </div>
                   </div>
                 </div>
