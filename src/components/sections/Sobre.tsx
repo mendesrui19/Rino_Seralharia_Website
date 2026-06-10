@@ -25,7 +25,7 @@ function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: strin
 export function Sobre() {
   return (
     <section id="sobre" className="section-light py-[120px] bg-bg-light border-y border-black/[0.04]">
-      <div className="container max-w-[1200px] mx-auto px-8">
+      <div className="container max-w-[1200px] mx-auto px-5 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-[80px] lg:gap-[120px] items-center">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}

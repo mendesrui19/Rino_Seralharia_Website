@@ -23,7 +23,7 @@ export function Hero() {
         />
       </motion.div>
 
-      <div className="container relative z-10 mx-auto px-8 max-w-[1200px]">
+      <div className="container relative z-10 mx-auto px-5 md:px-8 max-w-[1200px]">
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}

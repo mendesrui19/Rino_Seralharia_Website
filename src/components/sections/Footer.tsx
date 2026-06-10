@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 export function Footer() {
   return (
     <footer className="bg-[#050505] pt-20 pb-8 border-t border-white/[0.04]">
-      <div className="container max-w-[1200px] mx-auto px-8">
+      <div className="container max-w-[1200px] mx-auto px-5 md:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

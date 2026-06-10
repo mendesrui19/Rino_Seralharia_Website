@@ -42,7 +42,7 @@ function StarRating({ count }: { count: number }) {
 export function Testemunhos() {
   return (
     <section className="section-light py-[100px] bg-bg-light border-y border-black/[0.04] overflow-hidden">
-      <div className="container max-w-[1200px] mx-auto px-8">
+      <div className="container max-w-[1200px] mx-auto px-5 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}

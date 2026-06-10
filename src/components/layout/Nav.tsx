@@ -18,7 +18,7 @@ export function Nav() {
         id="nav"
         className="fixed top-0 left-0 right-0 z-[200] transition-all duration-350 border-b border-white/[0.04] bg-[#050505]"
       >
-        <div className="flex items-center justify-between py-5 px-8 max-w-[1200px] mx-auto">
+        <div className="flex items-center justify-between py-5 px-5 md:px-8 max-w-[1200px] mx-auto">
           <a href="#" className="flex flex-col leading-none gap-0.5">
             <img src="/images/85dc00a86ed4a46df517c3ae0e2b94fd_590x234_0x0_590x237_crop23e4.jpg" alt="Serralharia Rinos" className="h-[60px] w-auto object-contain" />
           </a>

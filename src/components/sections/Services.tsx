@@ -19,7 +19,7 @@ export function Services() {
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-accent/30 to-transparent"></div>
 
-      <div className="container max-w-[1200px] mx-auto px-8 relative z-10">
+      <div className="container max-w-[1200px] mx-auto px-5 md:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}

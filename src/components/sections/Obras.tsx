@@ -5,6 +5,7 @@ import { ShimmerButton } from '../ui/shimmer-button';
 export function Obras() {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [galleryLayout, setGalleryLayout] = useState<'grid' | 'list'>('grid');
 
   const featuredImages = [
     { src: "/images/12719a8da1442e59f47f50312a47a651_fit.jpg", alt: "Portão inox vertical", label: "Portão Inox" },
@@ -39,7 +40,7 @@ export function Obras() {
 
   return (
     <section id="obras" className="py-[120px] bg-bg-base border-t border-white/[0.04]">
-      <div className="container max-w-[1200px] mx-auto px-8">
+      <div className="container max-w-[1200px] mx-auto px-5 md:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -128,13 +129,32 @@ export function Obras() {
                 Os Nossos <span className="text-[#c8a96e] italic">Trabalhos</span>
               </h2>
               <div className="w-16 h-[2px] bg-[#c8a96e] mx-auto mb-8"></div>
-              <p className="text-[#666666] max-w-[500px] mx-auto text-[1.1rem] leading-relaxed">
+              <p className="text-[#666666] max-w-[500px] mx-auto text-[1.1rem] leading-relaxed mb-8">
                 Uma coleção completa de projetos que representam o nosso ofício e dedicação.
               </p>
+              
+              <div className="flex justify-center gap-2 mb-4">
+                <button
+                  onClick={() => setGalleryLayout('grid')}
+                  className={`p-2 rounded-sm transition-all duration-300 ${galleryLayout === 'grid' ? 'bg-[#c8a96e] text-white shadow-md' : 'bg-transparent text-[#666666] hover:bg-black/5 hover:text-[#2C2C2C]'}`}
+                  aria-label="Ver em Grelha"
+                  title="Vista de Grelha"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                </button>
+                <button
+                  onClick={() => setGalleryLayout('list')}
+                  className={`p-2 rounded-sm transition-all duration-300 ${galleryLayout === 'list' ? 'bg-[#c8a96e] text-white shadow-md' : 'bg-transparent text-[#666666] hover:bg-black/5 hover:text-[#2C2C2C]'}`}
+                  aria-label="Ver em Lista"
+                  title="Vista de Lista"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                </button>
+              </div>
             </div>
 
-            <div className="container max-w-[1400px] mx-auto px-6 pb-24">
-              <div className="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6">
+            <div className="container max-w-[1400px] mx-auto px-5 md:px-6 pb-24">
+              <div className={`${galleryLayout === 'grid' ? 'columns-2 sm:columns-3 lg:columns-4' : 'columns-1 sm:columns-2 max-w-[800px] mx-auto'} gap-4 md:gap-6 space-y-4 md:space-y-6`}>
                 {allImages.map((img, i) => (
                   <motion.div 
                     initial={{ opacity: 0, y: 20 }}
