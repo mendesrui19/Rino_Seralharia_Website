@@ -69,7 +69,7 @@ export function Testemunhos() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12 max-w-[1050px] mx-auto">
           {reviews.map((r, i) => (
             <motion.div
               key={r.name}
@@ -77,7 +77,7 @@ export function Testemunhos() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-bg-ter border border-white/[0.04] p-8 rounded-xl relative group hover:border-accent/20 transition-all duration-500"
+              className="bg-bg-ter border border-white/[0.04] p-6 lg:p-7 rounded-xl relative group hover:border-accent/20 transition-all duration-500"
             >
               {/* Quote mark */}
               <div className="font-display text-[5rem] leading-none text-accent/10 absolute -top-2 right-6 select-none">"</div>
