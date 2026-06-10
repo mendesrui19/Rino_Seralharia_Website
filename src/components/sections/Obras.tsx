@@ -42,9 +42,19 @@ export function Obras() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col md:flex-row justify-between items-end mb-[60px] gap-6"
         >
-          <div>
-            <div className="section-tag">Portfólio</div>
-            <h2 className="section-h2">As Nossas<br/><span className="text-accent">Obras</span></h2>
+          <div className="flex flex-col items-start gap-6">
+            <div>
+              <div className="section-tag">Portfólio</div>
+              <h2 className="section-h2">As Nossas<br/><span className="text-accent">Obras</span></h2>
+            </div>
+            <ShimmerButton 
+              onClick={() => setIsGalleryOpen(true)}
+              background="#c8a96e"
+              shimmerColor="#ffffff"
+              className="text-bg-base font-bold tracking-[0.16em] uppercase text-[0.65rem] px-6 py-3 shadow-[0_0_20px_rgba(200,169,110,0.3)] hover:-translate-y-1"
+            >
+              VER PORTEFÓLIO COMPLETO
+            </ShimmerButton>
           </div>
           <p className="text-[0.82rem] text-dim text-right max-w-[260px]">
             Todas as fotos correspondem a trabalhos reais realizados pela nossa empresa.
