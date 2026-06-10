@@ -21,7 +21,8 @@ export function Obras() {
     { src: "/images/obra_nova_2.jpg", alt: "Projeto Inox", label: "Portão com Parede Xisto" },
     { src: "/images/obra_nova_3.jpg", alt: "Projeto Inox", label: "Guarda em Vidro" },
     { src: "/images/obra_nova_4.jpg", alt: "Projeto Inox", label: "Guarda Varanda Interior" },
-    { src: "/images/obra_nova_5.jpg", alt: "Projeto Inox", label: "Fonte / Espelho d'Água Inox" }
+    { src: "/images/obra_nova_5.jpg", alt: "Projeto Inox", label: "Fonte / Espelho d'Água Inox" },
+    { src: "/images/obra_nova_6.jpg", alt: "Escadaria Interior", label: "Escadaria Inox e Madeira" }
   ];
 
   useEffect(() => {
