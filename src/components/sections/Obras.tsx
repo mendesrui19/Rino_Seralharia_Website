@@ -18,10 +18,7 @@ export function Obras() {
     { src: "/images/89bce939c27296f3f5c9af907cde2998_fit.jpg", alt: "Corrimão", label: "Corrimão Inox" },
     { src: "/images/96b85fc5149c692df658b14e8e3590bf_fit.jpg", alt: "Escadaria", label: "Estruturas" },
     { src: "/images/23e710ebc18b2db42414f0c4805a3217_493x277_0x1_493x278_cropb059.jpg", alt: "Trabalho Inox", label: "Trabalho em Inox" },
-    { src: "/images/754a7209afa677072b963f9fa385f301_fit.jpg", alt: "Detalhe", label: "Detalhe Inox" },
-    { src: "/images/85dc00a86ed4a46df517c3ae0e2b94fd_590x234_0x0_590x237_cropb059.jpg", alt: "Obra", label: "Projeto Concluído" },
-    { src: "/images/96e228a03a061457d15673e6198d0afa_493x277_0x1_493x278_cropb059.jpg", alt: "Obra", label: "Projeto Concluído" },
-    { src: "/images/f78f8c3e67b7ddb43f6e3547bb632c21_493x277_0x1_493x278_cropb059.jpg", alt: "Obra", label: "Projeto Concluído" }
+    { src: "/images/754a7209afa677072b963f9fa385f301_fit.jpg", alt: "Detalhe", label: "Detalhe Inox" }
   ];
 
   useEffect(() => {
