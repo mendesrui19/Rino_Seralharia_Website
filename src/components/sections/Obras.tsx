@@ -19,11 +19,11 @@ export function Obras() {
     { src: "/images/96b85fc5149c692df658b14e8e3590bf_fit.jpg", alt: "Escadaria", label: "Estruturas" },
     { src: "/images/23e710ebc18b2db42414f0c4805a3217_493x277_0x1_493x278_cropb059.jpg", alt: "Trabalho Inox", label: "Trabalho em Inox" },
     { src: "/images/754a7209afa677072b963f9fa385f301_fit.jpg", alt: "Detalhe", label: "Detalhe Inox" },
-    { src: "/images/obra_nova_1.png", alt: "Projeto Inox", label: "Projeto Concluído" },
-    { src: "/images/obra_nova_2.png", alt: "Projeto Inox", label: "Estrutura Inox" },
-    { src: "/images/obra_nova_3.png", alt: "Projeto Inox", label: "Trabalho em Inox" },
-    { src: "/images/obra_nova_4.png", alt: "Projeto Inox", label: "Obra Finalizada" },
-    { src: "/images/obra_nova_5.png", alt: "Projeto Inox", label: "Serralharia Civil" }
+    { src: "/images/obra_nova_1.jpg", alt: "Projeto Inox", label: "Portão Inox + Madeira" },
+    { src: "/images/obra_nova_2.jpg", alt: "Projeto Inox", label: "Portão com Parede Xisto" },
+    { src: "/images/obra_nova_3.jpg", alt: "Projeto Inox", label: "Guarda em Vidro" },
+    { src: "/images/obra_nova_4.jpg", alt: "Projeto Inox", label: "Guarda Varanda Interior" },
+    { src: "/images/obra_nova_5.jpg", alt: "Projeto Inox", label: "Fonte / Espelho d'Água Inox" }
   ];
 
   useEffect(() => {
