@@ -51,7 +51,7 @@ export function Testemunhos() {
           className="flex flex-col items-center text-center mb-[60px]"
         >
           <div className="section-tag mx-auto">O Que Dizem De Nós</div>
-          <h2 className="section-h2">Avaliações <span className="text-accent">Reais</span></h2>
+          <h2 className="section-h2">Avaliações</h2>
           
           {/* Google rating badge */}
           <div className="mt-6 flex items-center gap-3 bg-bg-ter px-6 py-3 rounded-full border border-white/[0.06]">
