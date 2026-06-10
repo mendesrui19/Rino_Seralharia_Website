@@ -36,25 +36,25 @@ export function PorqueNos() {
           <RoadmapCard
             items={[
               {
-                quarter: "PASSO 01",
+                quarter: "01",
                 title: "100% Por Medida",
                 description: "Nenhum produto standard. Cada peça é fabricada especificamente para o seu espaço.",
                 status: "done",
               },
               {
-                quarter: "PASSO 02",
+                quarter: "02",
                 title: "Chave-na-mão",
                 description: "Visita, orçamento, fabrico e montagem. Sem surpresas ou subcontratação.",
                 status: "done",
               },
               {
-                quarter: "PASSO 03",
+                quarter: "03",
                 title: "Rigor nos Prazos",
                 description: "Cumprimos o que prometemos. A sua obra não pára à espera.",
                 status: "done",
               },
               {
-                quarter: "PASSO 04",
+                quarter: "04",
                 title: "Empresas & Retalho",
                 description: "Da habitação ao hotel, do restaurante à unidade fabril. O mesmo nível de exigência.",
                 status: "done",
