@@ -110,8 +110,17 @@ export function Obras() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[190] bg-[#F5F2EB] overflow-y-auto text-[#2C2C2C] pt-[100px]"
           >
+            <div className="container max-w-[1400px] mx-auto px-6 pt-6">
+              <button 
+                onClick={() => setIsGalleryOpen(false)}
+                className="flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#8C8C8C] hover:text-[#2C2C2C] transition-colors font-semibold"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                VOLTAR
+              </button>
+            </div>
             
-            <div className="container max-w-[1000px] mx-auto px-6 pt-20 pb-16 text-center">
+            <div className="container max-w-[1000px] mx-auto px-6 pt-8 pb-16 text-center">
               <div className="text-[#c8a96e] text-[0.75rem] uppercase tracking-[0.3em] font-semibold mb-6">
                 Galeria Completa
               </div>
