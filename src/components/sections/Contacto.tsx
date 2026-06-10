@@ -40,65 +40,59 @@ export function Contacto() {
             <h2 className="section-h2">Vamos<br/><span className="text-accent">Conversar</span></h2>
             <p className="section-desc mb-10">Tem um projeto em mente? Descreva-nos o que precisa e damos vida à sua ideia.</p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
-              <div className="flex flex-col gap-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-[36px] h-[36px] rounded-full border border-white/10 flex items-center justify-center flex-shrink-0 text-accent bg-bg-sec">
-                    <svg viewBox="0 0 16 16" fill="none" className="w-[14px] h-[14px]"><path d="M13.5 10.5c-.5-.5-2-.5-2.5 0l-.8.8c-1-.5-2-1.5-2.5-2.5l.8-.8c.5-.5.5-2 0-2.5L7 3.5c-.5-.5-1.5-.5-2 0L3.5 5C3 6 3.5 9 6 11.5S10 13 11 12.5l1.5-1.5c.5-.5.5-1.5 0-2z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>
-                  </div>
-                  <div>
-                    <div className="text-[0.65rem] tracking-[0.15em] uppercase text-dim font-bold mb-1">Telefones</div>
-                    <div className="text-[0.95rem] mb-1"><a href="tel:+351913255102" className="hover:text-accent transition-colors">913 255 102</a></div>
-                    <div className="text-[0.95rem]"><a href="tel:+351913148995" className="hover:text-accent transition-colors">913 148 995</a> <span className="text-dim text-[0.8rem] block">(Sr. Nelson Ribeiro)</span></div>
-                  </div>
+            <div className="flex flex-col gap-6 mb-12">
+              <div className="flex items-start gap-4">
+                <div className="w-[36px] h-[36px] rounded-full border border-white/10 flex items-center justify-center flex-shrink-0 text-accent bg-bg-sec">
+                  <svg viewBox="0 0 16 16" fill="none" className="w-[14px] h-[14px]"><path d="M13.5 10.5c-.5-.5-2-.5-2.5 0l-.8.8c-1-.5-2-1.5-2.5-2.5l.8-.8c.5-.5.5-2 0-2.5L7 3.5c-.5-.5-1.5-.5-2 0L3.5 5C3 6 3.5 9 6 11.5S10 13 11 12.5l1.5-1.5c.5-.5.5-1.5 0-2z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-[36px] h-[36px] rounded-full border border-white/10 flex items-center justify-center flex-shrink-0 text-accent bg-bg-sec">
-                    <svg viewBox="0 0 16 16" fill="none" className="w-[14px] h-[14px]"><path d="M13 5H3a1 1 0 00-1 1v7a1 1 0 001 1h10a1 1 0 001-1V6a1 1 0 00-1-1zM2 6l6 4 6-4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-[0.65rem] tracking-[0.15em] uppercase text-dim font-bold mb-1">E-mail</div>
-                    <div className="text-[0.95rem] truncate"><a href="mailto:geral@serralhariarinos.com" className="hover:text-accent transition-colors break-all">geral@<br/>serralhariarinos.com</a></div>
-                  </div>
+                <div>
+                  <div className="text-[0.65rem] tracking-[0.15em] uppercase text-dim font-bold mb-1">Telefones</div>
+                  <div className="text-[0.95rem] mb-1"><a href="tel:+351913255102" className="hover:text-accent transition-colors">913 255 102</a></div>
+                  <div className="text-[0.95rem]"><a href="tel:+351913148995" className="hover:text-accent transition-colors">913 148 995</a> <span className="text-dim text-[0.8rem] block">(Sr. Nelson Ribeiro)</span></div>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-[36px] h-[36px] rounded-full border border-white/10 flex items-center justify-center flex-shrink-0 text-accent bg-bg-sec">
-                    <svg viewBox="0 0 16 16" fill="none" className="w-[14px] h-[14px]"><path d="M8 1a5 5 0 00-5 5c0 4 5 9 5 9s5-5 5-9a5 5 0 00-5-5z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/><circle cx="8" cy="6" r="1.5" stroke="currentColor" strokeWidth="1.3"/></svg>
-                  </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-[36px] h-[36px] rounded-full border border-white/10 flex items-center justify-center flex-shrink-0 text-accent bg-bg-sec">
+                  <svg viewBox="0 0 16 16" fill="none" className="w-[14px] h-[14px]"><path d="M13 5H3a1 1 0 00-1 1v7a1 1 0 001 1h10a1 1 0 001-1V6a1 1 0 00-1-1zM2 6l6 4 6-4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </div>
+                <div className="min-w-0">
+                  <div className="text-[0.65rem] tracking-[0.15em] uppercase text-dim font-bold mb-1">E-mail</div>
+                  <div className="text-[0.95rem] truncate"><a href="mailto:geral@serralhariarinos.com" className="hover:text-accent transition-colors break-all">geral@<br/>serralhariarinos.com</a></div>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-[36px] h-[36px] rounded-full border border-white/10 flex items-center justify-center flex-shrink-0 text-accent bg-bg-sec">
+                  <svg viewBox="0 0 16 16" fill="none" className="w-[14px] h-[14px]"><path d="M8 1a5 5 0 00-5 5c0 4 5 9 5 9s5-5 5-9a5 5 0 00-5-5z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/><circle cx="8" cy="6" r="1.5" stroke="currentColor" strokeWidth="1.3"/></svg>
+                </div>
+                <div className="flex flex-col sm:flex-row items-start gap-6">
                   <div>
                     <div className="text-[0.65rem] tracking-[0.15em] uppercase text-dim font-bold mb-1">Morada & GPS</div>
                     <div className="text-[0.95rem] text-[#e8e6e1]/80 leading-[1.6] mb-2">Rua do Romanço, nº 333, Lote 2 A<br/>Zona Ind. de Vila Nova<br/>4805-623 Vila Nova de Sande, Guimarães</div>
                     <div className="text-[0.8rem] text-accent">+41º 02' 12.7", -8º 36' 16.5"</div>
                   </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-[36px] h-[36px] rounded-full border border-white/10 flex items-center justify-center flex-shrink-0 text-accent bg-bg-sec">
-                    <svg viewBox="0 0 16 16" fill="none" className="w-[14px] h-[14px]"><rect x="2" y="3" width="12" height="11" rx="1" stroke="currentColor" strokeWidth="1.3"/><path d="M2 7h12M6 3v2M10 3v2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>
-                  </div>
-                  <div>
-                    <div className="text-[0.65rem] tracking-[0.15em] uppercase text-dim font-bold mb-1">Horário</div>
-                    <div className="text-[0.95rem] text-[#e8e6e1]/80 leading-[1.6]">2ª a 6ª Feira: 08:30h - 12:00h | 13:30h - 18:00h<br/>Fins de semana e feriados: Encerrado<br/><span className="text-dim text-[0.8rem]">* Atendimento extra-horário por marcação</span></div>
+                  {/* Small Workshop Photo */}
+                  <div className="rounded-[2px] overflow-hidden border border-white/5 relative group w-[180px] h-[110px] shrink-0 mt-2 sm:mt-0">
+                    <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none duration-500"></div>
+                    <img 
+                      src="/images/96e228a03a061457d15673e6198d0afa_493x277_0x1_493x278_cropb059.jpg" 
+                      alt="Instalações Serralharia Rinos" 
+                      className="absolute inset-0 w-full h-full object-cover filter brightness-90 grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
+                    />
+                    <div className="absolute bottom-2 left-2 bg-bg-sec/90 backdrop-blur-md px-2 py-1 border border-white/10 text-[0.55rem] uppercase tracking-widest text-white/90 z-20">
+                      A oficina
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-                className="rounded-[2px] overflow-hidden border border-white/5 relative group h-full min-h-[300px]"
-              >
-                <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none duration-500"></div>
-                <img 
-                  src="/images/96e228a03a061457d15673e6198d0afa_493x277_0x1_493x278_cropb059.jpg" 
-                  alt="Instalações Serralharia Rinos" 
-                  className="absolute inset-0 w-full h-full object-cover filter brightness-90 grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
-                />
-                <div className="absolute bottom-4 left-4 bg-bg-sec/90 backdrop-blur-md px-3 py-1.5 border border-white/10 text-[0.65rem] uppercase tracking-widest text-white/90 z-20">
-                  A nossa oficina
+              <div className="flex items-start gap-4">
+                <div className="w-[36px] h-[36px] rounded-full border border-white/10 flex items-center justify-center flex-shrink-0 text-accent bg-bg-sec">
+                  <svg viewBox="0 0 16 16" fill="none" className="w-[14px] h-[14px]"><rect x="2" y="3" width="12" height="11" rx="1" stroke="currentColor" strokeWidth="1.3"/><path d="M2 7h12M6 3v2M10 3v2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>
                 </div>
-              </motion.div>
+                <div>
+                  <div className="text-[0.65rem] tracking-[0.15em] uppercase text-dim font-bold mb-1">Horário</div>
+                  <div className="text-[0.95rem] text-[#e8e6e1]/80 leading-[1.6]">2ª a 6ª Feira: 08:30h - 12:00h | 13:30h - 18:00h<br/>Fins de semana e feriados: Encerrado<br/><span className="text-dim text-[0.8rem]">* Atendimento extra-horário por marcação</span></div>
+                </div>
+              </div>
             </div>
 
             <div className="flex flex-wrap gap-4 pt-6 border-t border-white/[0.04]">
