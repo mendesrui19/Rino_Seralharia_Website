@@ -37,8 +37,20 @@ export function Contacto() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <div className="section-tag">Fale Connosco</div>
-            <h2 className="section-h2">Vamos<br/><span className="text-accent">Conversar</span></h2>
-            <p className="section-desc mb-10">Tem um projeto em mente? Descreva-nos o que precisa e damos vida à sua ideia.</p>
+            <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-6 mb-6">
+              <h2 className="section-h2 mb-0">Vamos<br/><span className="text-accent">Conversar</span></h2>
+              <div className="flex flex-col sm:flex-row xl:flex-col gap-3 shrink-0">
+                <a href="https://wa.me/351913255102?text=Olá,%20gostaria%20de%20pedir%20um%20orçamento" target="_blank" className="btn btn-wa text-[0.8rem] py-2.5 px-5 flex items-center justify-center">
+                  <svg viewBox="0 0 16 16" fill="currentColor" className="w-[14px] h-[14px]"><path d="M8 1.5A6.5 6.5 0 0114.5 8c0 1.8-.73 3.44-1.9 4.63L14 15l-2.5-.87A6.5 6.5 0 118 1.5zm-1.5 4c-.27 0-.7.1-.93.36-.24.27-.9.88-.9 2.14s.92 2.48 1.05 2.65c.12.17 1.8 2.75 4.36 3.75 2.56 1.01 2.56.67 3.02.63.47-.04 1.5-.62 1.72-1.21.2-.6.2-1.1.14-1.21-.07-.1-.24-.17-.5-.3-.27-.13-1.57-.77-1.82-.86-.24-.09-.42-.14-.6.14-.17.27-.67.86-.82 1.03-.15.17-.3.2-.56.07-.27-.14-1.12-.41-2.14-1.31-.79-.7-1.32-1.57-1.47-1.83-.16-.27-.02-.42.1-.55.12-.12.27-.3.4-.45.14-.14.18-.25.27-.42.09-.17.05-.32-.02-.45-.07-.14-.6-1.44-.82-1.97-.22-.53-.44-.46-.6-.46z"/></svg>
+                  Enviar WhatsApp
+                </a>
+                <a href="tel:+351913255102" className="btn btn-ghost text-[0.8rem] py-2.5 px-5 bg-white/[0.02] border border-white/10 hover:border-accent/50 flex items-center justify-center">
+                  <svg viewBox="0 0 16 16" fill="none" className="w-[14px] h-[14px]"><path d="M13.5 10.5c-.5-.5-2-.5-2.5 0l-.8.8c-1-.5-2-1.5-2.5-2.5l.8-.8c.5-.5.5-2 0-2.5L7 3.5c-.5-.5-1.5-.5-2 0L3.5 5C3 6 3.5 9 6 11.5S10 13 11 12.5l1.5-1.5c.5-.5.5-1.5 0-2z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>
+                  Ligar para 913 255 102
+                </a>
+              </div>
+            </div>
+            <p className="section-desc mb-12">Tem um projeto em mente? Descreva-nos o que precisa e damos vida à sua ideia.</p>
 
             <div className="flex flex-col gap-6 mb-12">
               <div className="flex items-start gap-4">
@@ -92,17 +104,6 @@ export function Contacto() {
                   <div className="text-[0.95rem] text-[#e8e6e1]/80 leading-[1.6]">2ª a 6ª Feira: 08:30h - 12:00h | 13:30h - 18:00h<br/>Fins de semana e feriados: Encerrado<br/><span className="text-dim text-[0.8rem]">* Atendimento extra-horário por marcação</span></div>
                 </div>
               </div>
-            </div>
-
-            <div className="flex flex-wrap gap-4 pt-6 border-t border-white/[0.04]">
-              <a href="https://wa.me/351913255102?text=Olá,%20gostaria%20de%20pedir%20um%20orçamento" target="_blank" className="btn btn-wa">
-                <svg viewBox="0 0 16 16" fill="currentColor" className="w-[14px] h-[14px]"><path d="M8 1.5A6.5 6.5 0 0114.5 8c0 1.8-.73 3.44-1.9 4.63L14 15l-2.5-.87A6.5 6.5 0 118 1.5zm-1.5 4c-.27 0-.7.1-.93.36-.24.27-.9.88-.9 2.14s.92 2.48 1.05 2.65c.12.17 1.8 2.75 4.36 3.75 2.56 1.01 2.56.67 3.02.63.47-.04 1.5-.62 1.72-1.21.2-.6.2-1.1.14-1.21-.07-.1-.24-.17-.5-.3-.27-.13-1.57-.77-1.82-.86-.24-.09-.42-.14-.6.14-.17.27-.67.86-.82 1.03-.15.17-.3.2-.56.07-.27-.14-1.12-.41-2.14-1.31-.79-.7-1.32-1.57-1.47-1.83-.16-.27-.02-.42.1-.55.12-.12.27-.3.4-.45.14-.14.18-.25.27-.42.09-.17.05-.32-.02-.45-.07-.14-.6-1.44-.82-1.97-.22-.53-.44-.46-.6-.46z"/></svg>
-                Enviar WhatsApp
-              </a>
-              <a href="tel:+351913255102" className="btn btn-ghost">
-                <svg viewBox="0 0 16 16" fill="none" className="w-[14px] h-[14px]"><path d="M13.5 10.5c-.5-.5-2-.5-2.5 0l-.8.8c-1-.5-2-1.5-2.5-2.5l.8-.8c.5-.5.5-2 0-2.5L7 3.5c-.5-.5-1.5-.5-2 0L3.5 5C3 6 3.5 9 6 11.5S10 13 11 12.5l1.5-1.5c.5-.5.5-1.5 0-2z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>
-                Ligar para 913 255 102
-              </a>
             </div>
           </motion.div>
 
