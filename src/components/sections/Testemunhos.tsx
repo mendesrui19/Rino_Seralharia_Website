@@ -77,17 +77,17 @@ export function Testemunhos() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-white border border-black/5 p-6 lg:p-7 rounded-xl relative group hover:border-accent/40 hover:shadow-xl transition-all duration-500 shadow-sm"
+              className="bg-white border border-black/5 p-[clamp(1.2rem,3vw,1.75rem)] rounded-xl relative group hover:border-accent/40 hover:shadow-xl transition-all duration-500 shadow-sm flex flex-col h-full"
             >
               {/* Quote mark */}
-              <div className="font-display text-[5rem] leading-none text-accent/10 absolute -top-2 right-6 select-none">"</div>
+              <div className="font-display text-[clamp(3.5rem,8vw,5rem)] leading-none text-accent/10 absolute -top-2 right-6 select-none">"</div>
 
               <div className="flex items-center gap-2 mb-4">
                 <StarRating count={r.stars} />
-                <span className="text-text-dark-sec text-[0.72rem]">{r.time}</span>
+                <span className="text-text-dark-sec text-[clamp(0.65rem,1.5vw,0.72rem)]">{r.time}</span>
               </div>
 
-              <p className="text-[0.88rem] text-text-dark-sec leading-[1.8] mb-6 relative z-10">
+              <p className="text-[clamp(0.8rem,2vw,0.88rem)] text-text-dark-sec leading-[1.8] mb-6 relative z-10 flex-grow">
                 "{r.text}"
               </p>
 
