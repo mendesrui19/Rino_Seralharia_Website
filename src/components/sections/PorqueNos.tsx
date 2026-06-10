@@ -7,7 +7,7 @@ const zones = ["Guimarães", "Braga", "Fafe", "Vizela", "Barcelos", "Famalicão"
 
 export function PorqueNos() {
   return (
-    <section id="porquenos" className="py-[120px] bg-bg-base relative overflow-hidden">
+    <section id="porquenos" className="section-light py-[120px] bg-bg-light border-y border-black/[0.04] relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-accent/5 rounded-full blur-[150px] pointer-events-none"></div>
 
@@ -75,21 +75,21 @@ export function PorqueNos() {
             className="w-full"
           >
             <MagicCard 
-              className="flex flex-col lg:flex-row items-center gap-8 p-8 md:px-12 bg-bg-ter/30 border-white/[0.05]"
-              gradientColor="rgba(200, 169, 110, 0.1)"
+              className="flex flex-col lg:flex-row items-center gap-8 p-8 md:px-12 bg-white/50 border-black/[0.05]"
+              gradientColor="rgba(200, 169, 110, 0.15)"
             >
               <div className="flex items-center gap-4 shrink-0">
-                <div className="w-12 h-12 rounded-full bg-bg-sec flex items-center justify-center border border-white/10">
+                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center border border-black/10 shadow-sm">
                   <MapPin className="w-5 h-5 text-accent" strokeWidth={1.5} />
                 </div>
-                <div className="font-display text-xl tracking-[0.04em] text-white">Zonas de Cobertura</div>
+                <div className="font-display text-xl tracking-[0.04em] text-text-dark">Zonas de Cobertura</div>
               </div>
               
-              <div className="w-[1px] h-12 bg-white/10 hidden lg:block mx-4"></div>
+              <div className="w-[1px] h-12 bg-black/10 hidden lg:block mx-4"></div>
               
               <div className="flex flex-wrap gap-2.5 justify-center lg:justify-start">
                 {zones.map((zone) => (
-                  <span key={zone} className="text-[0.75rem] uppercase tracking-widest text-dim border border-white/[0.05] py-2 px-4 rounded-full bg-bg-sec/50 hover:bg-accent/10 hover:border-accent/30 hover:text-accent transition-all duration-300 cursor-default">
+                  <span key={zone} className="text-[0.75rem] uppercase tracking-widest text-text-dark-sec border border-black/[0.05] py-2 px-4 rounded-full bg-white hover:bg-accent/10 hover:border-accent/30 hover:text-accent transition-all duration-300 cursor-default">
                     {zone}
                   </span>
                 ))}

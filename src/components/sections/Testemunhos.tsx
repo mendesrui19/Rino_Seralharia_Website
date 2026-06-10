@@ -41,7 +41,7 @@ function StarRating({ count }: { count: number }) {
 
 export function Testemunhos() {
   return (
-    <section className="py-[100px] bg-bg-sec border-t border-white/[0.04] overflow-hidden">
+    <section className="section-light py-[100px] bg-bg-light border-y border-black/[0.04] overflow-hidden">
       <div className="container max-w-[1200px] mx-auto px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -54,7 +54,7 @@ export function Testemunhos() {
           <h2 className="section-h2">Avaliações</h2>
           
           {/* Google rating badge */}
-          <div className="mt-6 flex items-center gap-3 bg-bg-ter px-6 py-3 rounded-full border border-white/[0.06]">
+          <div className="mt-6 flex items-center gap-3 bg-white px-6 py-3 rounded-full border border-black/5 shadow-sm">
             <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
               <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
               <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -62,9 +62,9 @@ export function Testemunhos() {
               <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
             </svg>
             <div className="flex items-center gap-2">
-              <span className="font-display text-2xl text-white">5.0</span>
+              <span className="font-display text-2xl text-text-dark">5.0</span>
               <StarRating count={5} />
-              <span className="text-dim text-sm ml-1">(3 avaliações)</span>
+              <span className="text-text-dark-sec text-sm ml-1">(3 avaliações)</span>
             </div>
           </div>
         </motion.div>
@@ -77,29 +77,29 @@ export function Testemunhos() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-bg-ter border border-white/[0.04] p-6 lg:p-7 rounded-xl relative group hover:border-accent/20 transition-all duration-500"
+              className="bg-white border border-black/5 p-6 lg:p-7 rounded-xl relative group hover:border-accent/40 hover:shadow-xl transition-all duration-500 shadow-sm"
             >
               {/* Quote mark */}
               <div className="font-display text-[5rem] leading-none text-accent/10 absolute -top-2 right-6 select-none">"</div>
 
               <div className="flex items-center gap-2 mb-4">
                 <StarRating count={r.stars} />
-                <span className="text-dim text-[0.72rem]">{r.time}</span>
+                <span className="text-text-dark-sec text-[0.72rem]">{r.time}</span>
               </div>
 
-              <p className="text-[0.88rem] text-[#e8e6e1]/70 leading-[1.8] mb-6 relative z-10">
+              <p className="text-[0.88rem] text-text-dark-sec leading-[1.8] mb-6 relative z-10">
                 "{r.text}"
               </p>
 
-              <div className="border-t border-white/[0.04] pt-5 flex items-center gap-3">
+              <div className="border-t border-black/5 pt-5 flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-accent/20 flex items-center justify-center text-accent font-display text-lg">
                   {r.name.charAt(0)}
                 </div>
                 <div>
-                  <div className="font-display text-[1rem] tracking-[0.04em] text-white">{r.name}</div>
+                  <div className="font-display text-[1rem] tracking-[0.04em] text-text-dark">{r.name}</div>
                   <div className="flex items-center gap-1 mt-0.5">
                     <svg viewBox="0 0 24 24" className="w-3 h-3"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-                    <span className="text-[0.65rem] text-dim">Google Review</span>
+                    <span className="text-[0.65rem] text-text-dark-sec">Google Review</span>
                   </div>
                 </div>
               </div>
@@ -115,7 +115,7 @@ export function Testemunhos() {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="text-center"
         >
-          <p className="text-dim text-[0.85rem] mb-4">Já trabalhou connosco? Partilhe a sua experiência!</p>
+          <p className="text-text-dark-sec text-[0.85rem] mb-4">Já trabalhou connosco? Partilhe a sua experiência!</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <ShimmerButton
               href={GOOGLE_REVIEW_URL}
@@ -132,7 +132,7 @@ export function Testemunhos() {
               href={GOOGLE_MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-ghost"
+              className="btn btn-ghost-dark"
             >
               Ver no Google Maps
             </a>
