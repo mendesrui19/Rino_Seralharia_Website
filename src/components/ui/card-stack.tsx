@@ -371,27 +371,27 @@ export function CardStack<T extends CardStackItem>({
 
 function DefaultFanCard({ item, active }: { item: CardStackItem; active: boolean }) {
   return (
-    <div className="relative h-full w-full p-8 flex flex-col justify-center bg-bg-sec group">
+    <div className="relative h-full w-full p-6 flex flex-col justify-center bg-bg-sec group">
       {/* Custom render for Serralharia */}
-      <div className="absolute -bottom-10 -right-10 pointer-events-none opacity-20">
-        <span className="font-display text-[12rem] leading-none text-accent font-bold tracking-tighter">
+      <div className="absolute -bottom-6 -right-6 pointer-events-none opacity-20">
+        <span className="font-display text-[9rem] leading-none text-accent font-bold tracking-tighter">
           {item.num || item.id}
         </span>
       </div>
       
       <div className="relative z-10">
-        <div className="flex items-center gap-4 mb-4">
-          <div className={`h-[2px] w-8 ${active ? 'bg-accent' : 'bg-white/20'}`}></div>
-          <span className={`text-xs tracking-[0.2em] uppercase font-bold transition-colors ${active ? 'text-accent' : 'text-white/40'}`}>
+        <div className="flex items-center gap-3 mb-3">
+          <div className={`h-[2px] w-6 ${active ? 'bg-accent' : 'bg-white/20'}`}></div>
+          <span className={`text-[0.65rem] tracking-[0.2em] uppercase font-bold transition-colors ${active ? 'text-accent' : 'text-white/40'}`}>
             Serviço {item.num || item.id}
           </span>
         </div>
         
-        <h3 className={`font-display text-3xl mb-4 leading-tight transition-colors ${active ? 'text-white' : 'text-white/60'}`}>
+        <h3 className={`font-display text-2xl md:text-3xl mb-3 leading-tight transition-colors ${active ? 'text-white' : 'text-white/60'}`}>
           {item.title}
         </h3>
         
-        <p className={`text-sm md:text-base leading-relaxed max-w-[85%] transition-colors ${active ? 'text-dim' : 'text-white/30'}`}>
+        <p className={`text-[0.8rem] md:text-sm leading-relaxed max-w-[90%] transition-colors ${active ? 'text-dim' : 'text-white/30'}`}>
           {item.description}
         </p>
       </div>

@@ -46,8 +46,8 @@ export function Services() {
             intervalMs={3500}
             pauseOnHover={true}
             showDots={true}
-            cardWidth={520}
-            cardHeight={320}
+            cardWidth={420}
+            cardHeight={240}
             overlap={0.4}
             spreadDeg={50}
             perspectivePx={1000}
