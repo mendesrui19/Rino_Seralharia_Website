@@ -31,6 +31,10 @@ export function Obras() {
     } else {
       document.body.style.overflow = '';
     }
+
+    const handleHashChange = () => setIsGalleryOpen(false);
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, [isGalleryOpen, selectedImage]);
 
   return (
@@ -104,20 +108,8 @@ export function Obras() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[500] bg-[#F5F2EB] overflow-y-auto text-[#2C2C2C]"
+            className="fixed inset-0 z-[190] bg-[#F5F2EB] overflow-y-auto text-[#2C2C2C] pt-[100px]"
           >
-            <div className="sticky top-0 bg-[#F5F2EB]/90 backdrop-blur-md z-10 px-8 py-6 flex justify-between items-center border-b border-[#2C2C2C]/5">
-              <button 
-                onClick={() => setIsGalleryOpen(false)}
-                className="flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#8C8C8C] hover:text-[#2C2C2C] transition-colors font-semibold"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                VOLTAR
-              </button>
-              <div className="font-display tracking-[0.2em] text-sm font-bold text-[#c8a96e]">
-                SERRALHARIA <span className="text-[#2C2C2C]">RINOS</span>
-              </div>
-            </div>
             
             <div className="container max-w-[1000px] mx-auto px-6 pt-20 pb-16 text-center">
               <div className="text-[#c8a96e] text-[0.75rem] uppercase tracking-[0.3em] font-semibold mb-6">
