@@ -1,5 +1,7 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ShimmerButton } from "../ui/shimmer-button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const services = [
   { num: "01", name: "Estruturas Metálicas", desc: "Construção de estruturas em ferro, asnas, pilares, pilaretes e vigas estruturais." },
@@ -13,6 +15,53 @@ const services = [
 ];
 
 export function Services() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+
+  const nextService = () => {
+    setDirection(1);
+    setActiveIndex((prev) => (prev + 1) % services.length);
+  };
+
+  const prevService = () => {
+    setDirection(-1);
+    setActiveIndex((prev) => (prev - 1 + services.length) % services.length);
+  };
+
+  // The Slash animation variants
+  const slashVariants = {
+    initial: (dir: number) => ({
+      clipPath: dir > 0 
+        ? "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)" // start from right closed
+        : "polygon(0 0, 0 0, 0 100%, 0 100%)", // start from left closed
+      opacity: 0,
+      scale: 0.95,
+      filter: "brightness(2) contrast(1.5)"
+    }),
+    animate: {
+      clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)", // fully open
+      opacity: 1,
+      scale: 1,
+      filter: "brightness(1) contrast(1)",
+      transition: { 
+        duration: 0.8, 
+        ease: [0.76, 0, 0.24, 1] as any,
+      }
+    },
+    exit: (dir: number) => ({
+      clipPath: dir > 0
+        ? "polygon(0 0, 0 0, -20% 100%, -20% 100%)" // slash left
+        : "polygon(120% 0, 120% 0, 100% 100%, 100% 100%)", // slash right
+      opacity: 0,
+      scale: 1.05,
+      filter: "brightness(0.5)",
+      transition: { 
+        duration: 0.6, 
+        ease: [0.76, 0, 0.24, 1] as any 
+      }
+    })
+  };
+
   return (
     <section id="servicos" className="py-[120px] bg-bg-base overflow-hidden relative">
       {/* Top accent line */}
@@ -36,38 +85,99 @@ export function Services() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((svc, i) => (
+        {/* Book / Interactive Panel */}
+        <div className="relative max-w-[800px] mx-auto min-h-[400px]">
+          
+          <AnimatePresence custom={direction} mode="popLayout">
             <motion.div
-              key={svc.num}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group h-full"
+              key={activeIndex}
+              custom={direction}
+              variants={slashVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="w-full bg-bg-sec border border-white/[0.06] rounded-xl p-10 md:p-16 relative overflow-hidden group shadow-[0_0_50px_rgba(0,0,0,0.5)]"
             >
-              <div className="relative bg-bg-sec border border-white/[0.06] rounded-lg p-8 pb-10 h-full transition-all duration-500 hover:border-accent/30 hover:bg-bg-ter hover:shadow-[0_0_40px_rgba(200,169,110,0.08)]">
-                {/* Number */}
-                <div className="flex items-center gap-3 mb-8">
-                  <span className="font-display text-[3rem] leading-none text-accent/60 group-hover:text-accent transition-colors duration-500">
-                    {svc.num}
+              {/* Slash overlay effect that flashes quickly during transition */}
+              <motion.div 
+                initial={{ opacity: 1, x: direction > 0 ? "100%" : "-100%", skewX: -20 }}
+                animate={{ opacity: 0, x: direction > 0 ? "-100%" : "100%", skewX: -20 }}
+                transition={{ duration: 0.8, ease: "circOut" }}
+                className="absolute inset-0 w-[50%] bg-gradient-to-r from-transparent via-accent/30 to-transparent pointer-events-none z-0"
+              />
+
+              <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-16">
+                
+                {/* Left side: Big Number */}
+                <div className="flex-shrink-0">
+                  <span className="font-display text-[8rem] md:text-[12rem] leading-none text-white/5 font-bold tracking-tighter select-none">
+                    {services[activeIndex].num}
                   </span>
-                  <div className="h-[1px] flex-1 bg-accent/20 group-hover:bg-accent/40 transition-colors duration-500"></div>
                 </div>
 
-                {/* Content */}
-                <h3 className="font-display text-[1.45rem] tracking-[0.03em] mb-4 text-white leading-[1.2] group-hover:text-accent transition-colors duration-300">
-                  {svc.name}
-                </h3>
-                <p className="text-[0.82rem] text-[#e8e6e1]/45 leading-[1.75] group-hover:text-[#e8e6e1]/70 transition-colors duration-500">
-                  {svc.desc}
-                </p>
+                {/* Right side: Content */}
+                <div className="flex-1">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="h-[2px] w-12 bg-accent"></div>
+                    <span className="text-accent text-sm tracking-[0.2em] uppercase font-bold">Serviço {services[activeIndex].num}</span>
+                  </div>
+                  
+                  <h3 className="font-display text-3xl md:text-5xl tracking-[0.02em] mb-6 text-white leading-[1.1]">
+                    {services[activeIndex].name}
+                  </h3>
+                  
+                  <p className="text-[1.1rem] md:text-[1.2rem] text-dim leading-[1.8] max-w-[400px]">
+                    {services[activeIndex].desc}
+                  </p>
+                </div>
 
-                {/* Bottom accent line */}
-                <div className="absolute bottom-0 left-6 right-6 h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+              </div>
+              
+              {/* Progress Bar inside card */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/5">
+                <motion.div 
+                  initial={{ width: 0 }}
+                  animate={{ width: `${((activeIndex + 1) / services.length) * 100}%` }}
+                  transition={{ duration: 0.5 }}
+                  className="h-full bg-accent"
+                />
               </div>
             </motion.div>
-          ))}
+          </AnimatePresence>
+
+          {/* Controls */}
+          <div className="flex items-center justify-between mt-8 relative z-20">
+            <button 
+              onClick={prevService}
+              className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-accent hover:border-accent/50 hover:bg-accent/10 transition-all duration-300 backdrop-blur-sm"
+              aria-label="Serviço Anterior"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            
+            <div className="flex gap-2">
+              {services.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    setDirection(idx > activeIndex ? 1 : -1);
+                    setActiveIndex(idx);
+                  }}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${idx === activeIndex ? "bg-accent scale-125" : "bg-white/20 hover:bg-white/50"}`}
+                  aria-label={`Ir para serviço ${idx + 1}`}
+                />
+              ))}
+            </div>
+
+            <button 
+              onClick={nextService}
+              className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-accent hover:border-accent/50 hover:bg-accent/10 transition-all duration-300 backdrop-blur-sm"
+              aria-label="Próximo Serviço"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
+
         </div>
 
         {/* CTA */}
