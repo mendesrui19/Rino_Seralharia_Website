@@ -108,9 +108,9 @@ export function Obras() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[190] bg-[#F5F2EB] overflow-y-auto text-[#2C2C2C] pt-[100px]"
+            className="fixed inset-0 z-[190] bg-[#F5F2EB] overflow-y-auto text-[#2C2C2C] pt-[130px]"
           >
-            <div className="container max-w-[1400px] mx-auto px-6 pt-6">
+            <div className="container max-w-[1400px] mx-auto px-6 pt-8">
               <button 
                 onClick={() => setIsGalleryOpen(false)}
                 className="flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#8C8C8C] hover:text-[#2C2C2C] transition-colors font-semibold"
