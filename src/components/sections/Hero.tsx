@@ -1,8 +1,17 @@
+import { useRef, useEffect } from "react";
 import { ShimmerButton } from "../ui/shimmer-button";
 import { BlurIn } from "../ui/blur-in";
 import { motion } from "framer-motion";
 
 export function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.5;
+    }
+  }, []);
+
   return (
     <header className="relative min-h-[100svh] flex items-center pt-20 overflow-hidden bg-bg-base">
       <motion.div 
@@ -12,9 +21,13 @@ export function Hero() {
         className="absolute inset-0 z-0"
       >
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(10,10,10,0.6)_0%,rgba(10,10,10,0.85)_50%,rgba(10,10,10,1)_100%)] z-10" />
-        <img
-          src="/images/12719a8da1442e59f47f50312a47a651_fit.jpg"
-          alt="Estrutura de aço serralharia Rinos"
+        <video
+          ref={videoRef}
+          src="/videos/hero_bg.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
           className="w-full h-full object-cover animate-img-ken"
         />
       </motion.div>
