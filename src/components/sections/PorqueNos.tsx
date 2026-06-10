@@ -75,7 +75,7 @@ export function PorqueNos() {
             className="w-full"
           >
             <MagicCard 
-              className="flex flex-col lg:flex-row items-center gap-8 p-8 md:px-12 bg-white/50 border-black/[0.05]"
+              className="flex flex-col lg:flex-row items-center gap-8 p-8 md:px-12 !bg-white/60 !border-black/[0.05] !text-text-dark"
               gradientColor="rgba(200, 169, 110, 0.15)"
             >
               <div className="flex items-center gap-4 shrink-0">
