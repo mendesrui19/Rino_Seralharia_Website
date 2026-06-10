@@ -1,20 +1,21 @@
 import { motion } from "framer-motion";
-import { Ruler, Key, Clock, Building } from "lucide-react";
+import { Ruler, Key, Clock, Building, MapPin } from "lucide-react";
 import { ShimmerButton } from "../ui/shimmer-button";
+import { MagicCard } from "../ui/magic-card";
 
 export function PorqueNos() {
   const features = [
-    { icon: Ruler, title: "Fabrico 100% por medida", text: "Nenhum produto standard. Cada peça é desenhada e fabricada especificamente para o seu espaço." },
-    { icon: Key, title: "Serviço chave-na-mão", text: "Visita ao local, orçamento, fabrico e montagem. Sem surpresas, sem subcontratação." },
-    { icon: Clock, title: "Rigor nos prazos", text: "Cumprimos o que prometemos. A sua obra não pára à espera — sabemos disso." },
-    { icon: Building, title: "Particulares e empresas", text: "Da vivenda ao hotel, do restaurante à fábrica. O mesmo nível de exigência." }
+    { icon: Ruler, title: "100% Por Medida", text: "Nenhum produto standard. Cada peça é fabricada especificamente para o seu espaço.", colSpan: "col-span-1 md:col-span-1" },
+    { icon: Key, title: "Chave-na-mão", text: "Visita, orçamento, fabrico e montagem. Sem surpresas ou subcontratação.", colSpan: "col-span-1 md:col-span-1" },
+    { icon: Clock, title: "Rigor nos Prazos", text: "Cumprimos o que prometemos. A sua obra não pára à espera.", colSpan: "col-span-1 md:col-span-1" },
   ];
 
   const zones = ["Guimarães", "Braga", "Fafe", "Vizela", "Barcelos", "Famalicão", "Póvoa do Lanhoso", "Vieira do Minho", "Esposende", "Viana do Castelo", "Porto"];
 
   return (
-    <section id="porque" className="py-[120px] bg-bg-light section-light relative overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #000 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
+    <section id="porque" className="py-[120px] bg-[#050505] relative overflow-hidden">
+      {/* Dynamic Background Noise/Glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/5 via-transparent to-transparent opacity-50 blur-3xl pointer-events-none"></div>
 
       <div className="container max-w-[1200px] mx-auto px-8 relative z-10">
         <motion.div 
@@ -24,78 +25,138 @@ export function PorqueNos() {
           transition={{ duration: 0.8 }}
           className="flex flex-col items-center text-center mb-[70px]"
         >
-          <div className="section-tag mx-auto">Porquê escolher-nos</div>
-          <h2 className="section-h2">Qualidade sem <span className="text-accent">compromissos</span></h2>
-          <p className="section-desc mt-4 max-w-[500px]">
-            Serralheiros profissionais com experiência em fabrico, preparação, montagem e reparação de todos os tipos de estruturas metálicas.
+          <div className="section-tag mx-auto">A Nossa Garantia</div>
+          <h2 className="section-h2">Qualidade sem <span className="text-accent italic">compromissos</span></h2>
+          <p className="section-desc mt-4 max-w-[600px] mx-auto text-dim">
+            Serralheiros profissionais com experiência premium em fabrico, preparação e montagem de estruturas metálicas de alta resistência.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[minmax(200px,auto)]">
+          
           {features.map((f, i) => {
             const Icon = f.icon;
             return (
               <motion.div
                 key={f.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group text-center"
+                className={f.colSpan}
               >
-                <div className="w-16 h-16 rounded-2xl bg-white border border-accent/15 flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/10 group-hover:border-accent/30 group-hover:scale-110 transition-all duration-500 shadow-sm">
-                  <Icon className="w-8 h-8 text-accent" strokeWidth={1.5} />
-                </div>
-                <h3 className="font-display text-[1.3rem] tracking-[0.03em] mb-3 text-text-dark">
-                  {f.title}
-                </h3>
-                <p className="text-[0.85rem] text-text-dark-sec leading-[1.7]">
-                  {f.text}
-                </p>
+                <MagicCard 
+                  className="flex flex-col items-start p-8 bg-bg-sec/50 border-white/[0.05] hover:border-accent/30 transition-colors h-full"
+                  gradientColor="rgba(200, 169, 110, 0.15)"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6 border border-accent/20">
+                    <Icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-display text-xl mb-3 text-white">
+                    {f.title}
+                  </h3>
+                  <p className="text-[0.9rem] text-dim leading-[1.6]">
+                    {f.text}
+                  </p>
+                </MagicCard>
               </motion.div>
             );
           })}
-        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Orçamento Gratuito (CTA) spans 2 cols */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-white p-10 rounded-xl border border-black/[0.06] shadow-sm"
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="col-span-1 md:col-span-2 lg:col-span-2 relative group"
           >
-            <div className="font-display text-2xl tracking-[0.04em] mb-6 text-text-dark">Zona de Cobertura</div>
-            <div className="flex flex-wrap gap-2.5">
-              {zones.map((zone) => (
-                <span key={zone} className="text-xs uppercase tracking-widest text-text-dark-sec border border-text-dark/10 py-2 px-4 rounded-full bg-bg-light hover:bg-accent/10 hover:border-accent/30 hover:text-accent transition-all duration-300 cursor-default">
-                  {zone}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="p-10 rounded-xl border-2 border-accent/30 bg-gradient-to-br from-accent/[0.08] to-accent/[0.02]"
-          >
-            <div className="font-display text-[1.8rem] tracking-[0.04em] mb-2 text-accent">Orçamento Gratuito</div>
-            <p className="text-[0.88rem] text-text-dark-sec leading-[1.7] mb-6">
-              Visita ao local e orçamento sem custos e sem compromisso. Resposta em menos de 24 horas.
-            </p>
-            <ShimmerButton
-              href="tel:+351913255102"
-              background="#c8a96e"
-              shimmerColor="#ffffff"
-              className="text-bg-base font-bold tracking-[0.16em] uppercase text-sm w-full py-4 shadow-[0_0_40px_rgba(200,169,110,0.5)] hover:-translate-y-1 flex items-center justify-center gap-2"
+            <MagicCard 
+              className="flex flex-col md:flex-row items-center justify-between p-8 md:p-10 bg-gradient-to-br from-accent/10 to-bg-ter border-accent/20 h-full overflow-hidden"
+              gradientColor="rgba(200, 169, 110, 0.25)"
             >
-              <svg viewBox="0 0 16 16" fill="none" className="w-[14px] h-[14px]"><path d="M13.5 10.5c-.5-.5-2-.5-2.5 0l-.8.8c-1-.5-2-1.5-2.5-2.5l.8-.8c.5-.5.5-2 0-2.5L7 3.5c-.5-.5-1.5-.5-2 0L3.5 5C3 6 3.5 9 6 11.5S10 13 11 12.5l1.5-1.5c.5-.5.5-1.5 0-2z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>
-              Ligar Agora — 913 255 102
-            </ShimmerButton>
+              <div className="relative z-10 flex flex-col items-start text-left max-w-md">
+                <div className="font-display text-[2.2rem] tracking-[0.02em] mb-2 text-white leading-[1.1]">
+                  Procura um orçamento <span className="text-accent italic">rigoroso?</span>
+                </div>
+                <p className="text-[0.95rem] text-[#e8e6e1]/70 leading-[1.6] mb-8 md:mb-0">
+                  Efetuamos visita técnica ao local para aconselhamento e orçamento sem custos. Resposta em menos de 24 horas.
+                </p>
+              </div>
+              
+              <div className="relative z-10 shrink-0 w-full md:w-auto">
+                <ShimmerButton
+                  href="tel:+351913255102"
+                  background="#c8a96e"
+                  shimmerColor="#ffffff"
+                  className="text-bg-base font-bold tracking-[0.16em] uppercase text-sm w-full md:w-auto px-10 py-4 shadow-[0_0_40px_rgba(200,169,110,0.5)] hover:-translate-y-1 flex items-center justify-center gap-2"
+                >
+                  <svg viewBox="0 0 16 16" fill="none" className="w-[14px] h-[14px]"><path d="M13.5 10.5c-.5-.5-2-.5-2.5 0l-.8.8c-1-.5-2-1.5-2.5-2.5l.8-.8c.5-.5.5-2 0-2.5L7 3.5c-.5-.5-1.5-.5-2 0L3.5 5C3 6 3.5 9 6 11.5S10 13 11 12.5l1.5-1.5c.5-.5.5-1.5 0-2z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>
+                  Ligar Agora
+                </ShimmerButton>
+              </div>
+              
+              {/* Abstract decorative element inside card */}
+              <div className="absolute -bottom-20 -right-20 w-64 h-64 border border-accent/20 rounded-full blur-3xl opacity-50 group-hover:opacity-80 transition-opacity duration-700 pointer-events-none"></div>
+            </MagicCard>
           </motion.div>
+
+          {/* Particulares & Empresas spans 1 col */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="col-span-1 md:col-span-1 lg:col-span-1"
+          >
+            <MagicCard 
+              className="flex flex-col items-start p-8 bg-bg-sec/50 border-white/[0.05] hover:border-accent/30 transition-colors h-full"
+              gradientColor="rgba(200, 169, 110, 0.15)"
+            >
+              <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6 border border-accent/20">
+                <Building className="w-6 h-6 text-accent" strokeWidth={1.5} />
+              </div>
+              <h3 className="font-display text-xl mb-3 text-white">
+                Empresas & Retalho
+              </h3>
+              <p className="text-[0.9rem] text-dim leading-[1.6]">
+                Da habitação ao hotel, do restaurante à unidade fabril. O mesmo nível de exigência.
+              </p>
+            </MagicCard>
+          </motion.div>
+
+          {/* Zona de Cobertura spans full width (3 cols) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="col-span-1 md:col-span-2 lg:col-span-3"
+          >
+            <MagicCard 
+              className="flex flex-col md:flex-row items-center gap-8 p-8 md:px-12 bg-bg-ter/30 border-white/[0.05]"
+              gradientColor="rgba(200, 169, 110, 0.1)"
+            >
+              <div className="flex items-center gap-4 shrink-0">
+                <div className="w-12 h-12 rounded-full bg-bg-sec flex items-center justify-center border border-white/10">
+                  <MapPin className="w-5 h-5 text-accent" strokeWidth={1.5} />
+                </div>
+                <div className="font-display text-xl tracking-[0.04em] text-white">Zonas de Cobertura</div>
+              </div>
+              
+              <div className="w-[1px] h-12 bg-white/10 hidden md:block mx-4"></div>
+              
+              <div className="flex flex-wrap gap-2.5 justify-center md:justify-start">
+                {zones.map((zone) => (
+                  <span key={zone} className="text-[0.75rem] uppercase tracking-widest text-dim border border-white/[0.05] py-2 px-4 rounded-full bg-bg-sec/50 hover:bg-accent/10 hover:border-accent/30 hover:text-accent transition-all duration-300 cursor-default">
+                    {zone}
+                  </span>
+                ))}
+              </div>
+            </MagicCard>
+          </motion.div>
+
         </div>
       </div>
     </section>
