@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ShimmerButton } from "../ui/shimmer-button";
 import { CardStack, type CardStackItem } from "../ui/card-stack";
@@ -14,6 +15,25 @@ const services: CardStackItem[] = [
 ];
 
 export function Services() {
+  const [cardSize, setCardSize] = useState({ width: 320, height: 320 });
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 400) {
+        setCardSize({ width: width - 80, height: 300 });
+      } else if (width < 768) {
+        setCardSize({ width: 280, height: 320 });
+      } else {
+        setCardSize({ width: 320, height: 320 });
+      }
+    };
+    
+    handleResize(); // Set initial size
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <section id="servicos" className="py-[120px] bg-bg-base overflow-hidden relative">
       {/* Top accent line */}
@@ -45,8 +65,8 @@ export function Services() {
             autoAdvance={true}
             pauseOnHover={false}
             showDots={true}
-            cardWidth={320}
-            cardHeight={320}
+            cardWidth={cardSize.width}
+            cardHeight={cardSize.height}
             overlap={0.6}
             spreadDeg={35}
             maxVisible={5}

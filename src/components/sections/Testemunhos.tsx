@@ -69,7 +69,7 @@ export function Testemunhos() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12 max-w-[1050px] mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8 mb-12 max-w-[1050px] mx-auto">
           {reviews.map((r, i) => (
             <motion.div
               key={r.name}

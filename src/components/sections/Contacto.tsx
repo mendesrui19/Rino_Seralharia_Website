@@ -28,7 +28,7 @@ export function Contacto() {
   return (
     <section id="contacto" className="py-[120px] bg-bg-base overflow-hidden">
       <div className="container max-w-[1200px] mx-auto px-8 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-[80px] lg:gap-[120px]">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-[60px] md:gap-[80px] lg:gap-[120px]">
           
           <motion.div 
             initial={{ opacity: 0, x: -40 }}

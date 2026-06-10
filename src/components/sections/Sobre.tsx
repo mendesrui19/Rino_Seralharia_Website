@@ -19,14 +19,14 @@ function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: strin
     }
   }, [isInView, value, suffix]);
 
-  return <span ref={ref} className="stat-num text-5xl font-display tracking-[0.02em] text-text-dark leading-[1.1]">0</span>;
+  return <span ref={ref} className="stat-num text-[clamp(2.5rem,8vw,3rem)] font-display tracking-[0.02em] text-text-dark leading-[1.1]">0</span>;
 }
 
 export function Sobre() {
   return (
     <section id="sobre" className="section-light py-[120px] bg-bg-light border-y border-black/[0.04]">
       <div className="container max-w-[1200px] mx-auto px-5 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-[80px] lg:gap-[120px] items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.2fr_1fr] gap-[60px] md:gap-[80px] lg:gap-[120px] items-center">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -34,13 +34,13 @@ export function Sobre() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <div className="section-tag">A Empresa</div>
-            <h2 className="section-h2">
+            <h2 className="section-h2 text-[clamp(2.5rem,6vw,3.5rem)] leading-[1.1] mb-6">
               Precisão.<br/>Durabilidade.<br/><span className="text-accent">Aço Inox.</span>
             </h2>
-            <p className="section-desc">
+            <p className="section-desc text-[clamp(1rem,3vw,1.1rem)]">
               A <strong>SERRALHARIA RINOS</strong> é uma empresa jovem e dinâmica sedeada na região de Guimarães-Braga, especializada em serralharias de <strong>AÇO INOX de elevada qualidade</strong>, direcionadas tanto a clientes particulares como a empresas.
             </p>
-            <p className="mt-4 text-text-dark-sec text-[0.88rem] leading-[1.8] max-w-[520px]">
+            <p className="mt-4 text-text-dark-sec text-[clamp(0.8rem,2vw,0.88rem)] leading-[1.8] max-w-[520px]">
               Produzimos variados tipos de trabalhos de serralharia artística e de construção civil, com um foco no <strong>fabrico peça-a-peça</strong> de estruturas em inox, ferro e vidro.
               Fazemos a interpretação e execução de produtos em série, polimento, pantógrafo, fresadora e maquinação de peças de alumínio.
               De forma autónoma, ou integrada em outras artes da construção civil, intervimos em remodelações e restauros de estruturas metálicas existentes, bem como na criação de novas soluções para moradias, armazéns e obras industriais.
