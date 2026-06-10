@@ -26,7 +26,7 @@ export function PorqueNos() {
           className="flex flex-col items-center text-center mb-[70px]"
         >
           <div className="section-tag mx-auto">A Nossa Garantia</div>
-          <h2 className="section-h2">Qualidade sem <span className="text-accent italic">compromissos</span></h2>
+          <h2 className="section-h2">Excelência em cada <span className="text-accent italic">detalhe</span></h2>
           <p className="section-desc mt-4 max-w-[600px] mx-auto text-dim">
             Serralheiros profissionais com experiência premium em fabrico, preparação e montagem de estruturas metálicas de alta resistência.
           </p>
