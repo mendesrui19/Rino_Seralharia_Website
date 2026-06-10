@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <header className="relative min-h-[100svh] flex items-center pt-20 overflow-hidden bg-bg-base">
       <motion.div 
-        initial={{ scale: 1.1, opacity: 0 }}
+        initial={{ scale: 1.02, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
         className="absolute inset-0 z-0"
