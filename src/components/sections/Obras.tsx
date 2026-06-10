@@ -4,6 +4,7 @@ import { ShimmerButton } from '../ui/shimmer-button';
 
 export function Obras() {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const featuredImages = [
     { src: "/images/12719a8da1442e59f47f50312a47a651_fit.jpg", alt: "Portão inox vertical", label: "Portão Inox" },
@@ -27,12 +28,12 @@ export function Obras() {
   ];
 
   useEffect(() => {
-    if (isGalleryOpen) {
+    if (isGalleryOpen || selectedImage) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
-  }, [isGalleryOpen]);
+  }, [isGalleryOpen, selectedImage]);
 
   return (
     <section id="obras" className="py-[120px] bg-bg-base border-t border-white/[0.04]">
@@ -148,15 +149,47 @@ export function Obras() {
                       alt={img.alt}
                       className="w-full h-auto object-cover transition-transform duration-[1.2s] group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#2C2C2C]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                      <span className="font-display tracking-[0.06em] text-white text-md">
-                        {img.label}
-                      </span>
+                    <div 
+                      className="absolute inset-0 bg-[#2C2C2C]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-pointer"
+                      onClick={() => setSelectedImage(img.src)}
+                    >
+                      <div className="w-12 h-12 rounded-full border border-white/60 flex items-center justify-center text-white bg-[#2C2C2C]/20 backdrop-blur-sm transform scale-50 group-hover:scale-100 transition-transform duration-300">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                      </div>
                     </div>
                   </motion.div>
                 ))}
               </div>
             </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[600] bg-[#050505]/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-8"
+            onClick={() => setSelectedImage(null)}
+          >
+            <button 
+              className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors z-10"
+              onClick={() => setSelectedImage(null)}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <motion.img 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              src={selectedImage} 
+              alt="Obra em detalhe"
+              className="max-w-full max-h-full object-contain shadow-2xl rounded-[2px]"
+              onClick={(e) => e.stopPropagation()}
+            />
           </motion.div>
         )}
       </AnimatePresence>
