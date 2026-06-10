@@ -105,34 +105,50 @@ export function Obras() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[500] bg-[#050505] overflow-y-auto"
+            className="fixed inset-0 z-[500] bg-[#F5F2EB] overflow-y-auto text-[#2C2C2C]"
           >
-            <div className="sticky top-0 bg-[#050505]/90 backdrop-blur-md z-10 p-6 flex justify-between items-center border-b border-white/5">
-              <div className="font-display text-2xl">Catálogo Completo</div>
+            <div className="sticky top-0 bg-[#F5F2EB]/90 backdrop-blur-md z-10 px-8 py-6 flex justify-between items-center border-b border-[#2C2C2C]/5">
               <button 
                 onClick={() => setIsGalleryOpen(false)}
-                className="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 hover:bg-accent hover:text-bg-base transition-colors"
+                className="flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#8C8C8C] hover:text-[#2C2C2C] transition-colors font-semibold"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                VOLTAR
               </button>
+              <div className="font-display tracking-[0.2em] text-sm font-bold text-[#c8a96e]">
+                SERRALHARIA <span className="text-[#2C2C2C]">RINOS</span>
+              </div>
             </div>
             
-            <div className="container max-w-[1200px] mx-auto px-6 py-12">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="container max-w-[1000px] mx-auto px-6 pt-20 pb-16 text-center">
+              <div className="text-[#c8a96e] text-[0.75rem] uppercase tracking-[0.3em] font-semibold mb-6">
+                Galeria Completa
+              </div>
+              <h2 className="font-display text-5xl md:text-7xl text-[#2C2C2C] mb-8">
+                Os Nossos <span className="text-[#c8a96e] italic">Trabalhos</span>
+              </h2>
+              <div className="w-16 h-[2px] bg-[#c8a96e] mx-auto mb-8"></div>
+              <p className="text-[#666666] max-w-[500px] mx-auto text-[1.1rem] leading-relaxed">
+                Uma coleção completa de projetos que representam o nosso ofício e dedicação.
+              </p>
+            </div>
+
+            <div className="container max-w-[1400px] mx-auto px-6 pb-24">
+              <div className="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6">
                 {allImages.map((img, i) => (
                   <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.05 }}
                     key={i} 
-                    className="relative overflow-hidden group bg-bg-ter rounded-[2px] aspect-square"
+                    className="relative overflow-hidden group rounded-[2px] break-inside-avoid"
                   >
                     <img 
                       src={img.src}
                       alt={img.alt}
-                      className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
+                      className="w-full h-auto object-cover transition-transform duration-[1.2s] group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#2C2C2C]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                       <span className="font-display tracking-[0.06em] text-white text-md">
                         {img.label}
                       </span>
