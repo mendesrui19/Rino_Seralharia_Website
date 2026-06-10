@@ -42,11 +42,11 @@ export function Obras() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col md:flex-row justify-between items-end mb-[60px] gap-6"
         >
-          <div className="flex flex-col items-start gap-6">
-            <div>
-              <div className="section-tag">Portfólio</div>
-              <h2 className="section-h2">As Nossas<br/><span className="text-accent">Obras</span></h2>
-            </div>
+          <div>
+            <div className="section-tag">Portfólio</div>
+            <h2 className="section-h2">As Nossas<br/><span className="text-accent">Obras</span></h2>
+          </div>
+          <div className="flex flex-col items-end gap-4">
             <ShimmerButton 
               onClick={() => setIsGalleryOpen(true)}
               background="#c8a96e"
@@ -55,10 +55,10 @@ export function Obras() {
             >
               VER PORTEFÓLIO COMPLETO
             </ShimmerButton>
+            <p className="text-[0.82rem] text-dim text-right max-w-[260px]">
+              Todas as fotos correspondem a trabalhos reais realizados pela nossa empresa.
+            </p>
           </div>
-          <p className="text-[0.82rem] text-dim text-right max-w-[260px]">
-            Todas as fotos correspondem a trabalhos reais realizados pela nossa empresa.
-          </p>
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-[300px_300px] gap-[15px] mb-12">
