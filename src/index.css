@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+@theme {
+  --color-accent: #c8a96e;
+  --color-accent2: #a88c54;
+  --color-dim: #787672;
+  --color-bg-base: #0a0a0a;
+  --color-bg-sec: #111110;
+  --color-bg-ter: #181716;
+  --color-bg-light: #f5f3ee;
+  --color-bg-light-sec: #eae7e0;
+  --color-text-dark: #1a1918;
+  --color-text-dark-sec: #4a4845;
+  --color-white: #e8e6e1;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
+  --animate-slide: slide var(--speed) ease-in-out infinite alternate;
+  --animate-fade-up: fadeUp 0.8s cubic-bezier(.4,0,.2,1) both;
+  --animate-fade-in: fadeIn 0.8s cubic-bezier(.4,0,.2,1) both;
+  --animate-ticker: ticker 28s linear infinite;
+  --animate-pulse-slow: pulse 2s ease infinite;
+  --animate-img-ken: imgKen 12s cubic-bezier(.4,0,.2,1) both;
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-bounce-subtle: bounceSub 2s ease-in-out infinite;
+}
+
+@keyframes spin-around {
+  0% { transform: translateZ(0) rotate(0); }
+  15%, 35% { transform: translateZ(0) rotate(90deg); }
+  65%, 85% { transform: translateZ(0) rotate(270deg); }
+  100% { transform: translateZ(0) rotate(360deg); }
+}
+
+@keyframes slide {
+  to { transform: translate(calc(100cqw - 100%), 0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes imgKen {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes bounceSub {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@layer base {
+  body {
+    @apply bg-bg-base text-white font-body overflow-x-hidden;
+    line-height: 1.6;
+  }
+}
+
+/* ─── UTILITIES ─── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+/* ─── BUTTONS ─── */
+.btn {
+  @apply inline-flex items-center gap-2 text-xs tracking-widest uppercase font-bold py-3 px-8 rounded-sm transition-all duration-200;
+}
+.btn svg { width:14px; height:14px; flex-shrink:0; }
+.btn-gold {
+  @apply bg-accent text-bg-base;
+}
+.btn-gold:hover {
+  @apply bg-accent2 -translate-y-0.5 shadow-[0_10px_32px_rgba(200,169,110,0.3)];
+}
+.btn-ghost {
+  @apply bg-transparent text-white border border-white/20;
+}
+.btn-ghost:hover {
+  @apply border-white bg-white/5 -translate-y-0.5;
+}
+.btn-ghost-dark {
+  @apply bg-transparent text-text-dark border border-text-dark/20;
+}
+.btn-ghost-dark:hover {
+  @apply border-text-dark bg-text-dark/5 -translate-y-0.5;
+}
+.btn-wa {
+  @apply bg-[#25D366] text-white;
+}
+.btn-wa:hover { @apply bg-[#1fbd5a] -translate-y-0.5; }
+
+/* ─── CUSTOM SECTIONS ─── */
+.section-tag {
+  @apply text-[0.62rem] tracking-[0.24em] uppercase text-accent font-semibold flex items-center gap-3 mb-4;
+}
+.section-tag::before { content:''; @apply w-6 h-[1px] bg-accent block; }
+.section-h2 {
+  @apply font-display text-[clamp(2.4rem,4.5vw,4rem)] leading-[1.02] tracking-[0.02em];
+}
+.section-desc {
+  @apply mt-5 text-[#e8e6e1]/60 text-[0.88rem] leading-[1.8] max-w-[520px];
+}
+
+/* Light section overrides */
+.section-light .section-tag { @apply text-accent; }
+.section-light .section-h2 { @apply text-text-dark; }
+.section-light .section-desc { @apply text-text-dark-sec; }
+
+/* ─── SERVICES ─── */
+.svc-num {
+  @apply font-display text-7xl leading-none text-white/5 absolute top-4 right-5 tracking-[0.02em];
+}
+.svc-name {
+  @apply font-display text-2xl tracking-[0.04em] mb-3 text-white;
+}
+.svc-desc {
+  @apply text-[0.82rem] text-dim leading-[1.7];
+}
+
+/* ─── FLOATING WHATSAPP ─── */
+.wa-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 180;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+}
+.wa-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+}
+.wa-float svg { width: 30px; height: 30px; fill: white; }
+

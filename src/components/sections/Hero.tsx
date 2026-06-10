@@ -1,0 +1,56 @@
+import { ShimmerButton } from "../ui/shimmer-button";
+import { BlurIn } from "../ui/blur-in";
+
+export function Hero() {
+  return (
+    <header className="relative min-h-[100svh] flex items-center pt-20 overflow-hidden bg-bg-base">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(10,10,10,0.6)_0%,rgba(10,10,10,0.85)_50%,rgba(10,10,10,1)_100%)] z-10" />
+        <img
+          src="/images/12719a8da1442e59f47f50312a47a651_fit.jpg"
+          alt="Estrutura de aço serralharia Rinos"
+          className="w-full h-full object-cover animate-img-ken"
+        />
+      </div>
+
+      <div className="container relative z-10 mx-auto px-8 max-w-[1200px]">
+        <div className="max-w-[700px] animate-fade-up">
+          <BlurIn
+            word="Aço Inox, Ferro"
+            className="font-display text-[clamp(3.5rem,8vw,6.5rem)] leading-[0.95] tracking-[0.01em] uppercase text-white m-0 text-left"
+          />
+          <BlurIn
+            word="& Vidro"
+            className="font-display text-[clamp(3.5rem,8vw,6.5rem)] leading-[0.95] tracking-[0.01em] uppercase text-accent m-0 text-left mt-2"
+          />
+          
+          <p className="text-[0.65rem] tracking-[0.25em] text-accent font-bold uppercase mt-6 mb-4">Estética · Proteção · Resistência · Durabilidade</p>
+          <p className="mb-10 text-[0.95rem] text-[#e8e6e1]/70 leading-[1.8] max-w-[500px]">
+            Produzimos e montamos móveis para hotelaria e serralharias da construção civil em aço inox, vidro e ferro. Serralharias de aço inox em Guimarães e Arredores.
+          </p>
+          
+          <div className="flex flex-wrap gap-4 items-center">
+            <ShimmerButton
+              shimmerSize="0.1em"
+              shimmerColor="#ffffff"
+              shimmerDuration="2.5s"
+              background="#c8a96e"
+              className="text-bg-base text-xs font-bold uppercase tracking-widest px-8 py-3.5 hover:-translate-y-0.5 transition-transform"
+            >
+              <a href="#contacto" className="flex items-center gap-2">
+                Pedir Orçamento Grátis
+                <svg viewBox="0 0 16 16" fill="none" className="w-[14px] h-[14px]">
+                  <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
+            </ShimmerButton>
+            
+            <a href="#obras" className="btn btn-ghost py-3.5">
+              Ver Portfólio
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}
