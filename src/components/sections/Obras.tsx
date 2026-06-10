@@ -18,7 +18,12 @@ export function Obras() {
     { src: "/images/89bce939c27296f3f5c9af907cde2998_fit.jpg", alt: "Corrimão", label: "Corrimão Inox" },
     { src: "/images/96b85fc5149c692df658b14e8e3590bf_fit.jpg", alt: "Escadaria", label: "Estruturas" },
     { src: "/images/23e710ebc18b2db42414f0c4805a3217_493x277_0x1_493x278_cropb059.jpg", alt: "Trabalho Inox", label: "Trabalho em Inox" },
-    { src: "/images/754a7209afa677072b963f9fa385f301_fit.jpg", alt: "Detalhe", label: "Detalhe Inox" }
+    { src: "/images/754a7209afa677072b963f9fa385f301_fit.jpg", alt: "Detalhe", label: "Detalhe Inox" },
+    { src: "/images/obra_nova_1.png", alt: "Projeto Inox", label: "Projeto Concluído" },
+    { src: "/images/obra_nova_2.png", alt: "Projeto Inox", label: "Estrutura Inox" },
+    { src: "/images/obra_nova_3.png", alt: "Projeto Inox", label: "Trabalho em Inox" },
+    { src: "/images/obra_nova_4.png", alt: "Projeto Inox", label: "Obra Finalizada" },
+    { src: "/images/obra_nova_5.png", alt: "Projeto Inox", label: "Serralharia Civil" }
   ];
 
   useEffect(() => {
