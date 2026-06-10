@@ -373,8 +373,8 @@ function DefaultFanCard({ item, active }: { item: CardStackItem; active: boolean
   return (
     <div className="relative h-full w-full p-6 flex flex-col justify-center bg-bg-sec group">
       {/* Custom render for Serralharia */}
-      <div className="absolute -bottom-6 -right-6 pointer-events-none opacity-20">
-        <span className="font-display text-[9rem] leading-none text-accent font-bold tracking-tighter">
+      <div className="absolute bottom-0 right-2 pointer-events-none opacity-20">
+        <span className="font-display text-[8rem] leading-none text-accent font-bold tracking-tighter">
           {item.num || item.id}
         </span>
       </div>

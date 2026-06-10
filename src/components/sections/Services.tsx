@@ -42,9 +42,7 @@ export function Services() {
           <CardStack
             items={services}
             initialIndex={0}
-            autoAdvance={true}
-            intervalMs={3500}
-            pauseOnHover={true}
+            autoAdvance={false}
             showDots={true}
             cardWidth={320}
             cardHeight={320}
