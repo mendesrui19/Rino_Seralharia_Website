@@ -62,7 +62,7 @@ export function RoadmapCard({
                   )}
                 </motion.div>
 
-                {/* Quarter / Step Number */}
+                {/* Title in Golden Badge */}
                 <div className="mb-4">
                   <Badge
                     variant={
@@ -70,14 +70,13 @@ export function RoadmapCard({
                         ? "default"
                         : "outline"
                     }
-                    className="font-bold tracking-widest text-[0.65rem] px-3 py-1 shadow-xl"
+                    className="font-display font-bold text-lg md:text-xl px-5 py-2 shadow-xl whitespace-nowrap"
                   >
-                    {item.quarter}
+                    {item.title}
                   </Badge>
                 </div>
 
-                {/* Title + Description */}
-                <h4 className="text-xl md:text-2xl font-display text-white mb-3">{item.title}</h4>
+                {/* Description */}
                 <p className="text-sm md:text-base text-dim leading-relaxed">
                   {item.description}
                 </p>
