@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
-import { Ruler, Key, Clock, Building, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { ShimmerButton } from "../ui/shimmer-button";
 import { MagicCard } from "../ui/magic-card";
 
 export function PorqueNos() {
   const features = [
-    { icon: Ruler, title: "100% Por Medida", text: "Nenhum produto standard. Cada peça é fabricada especificamente para o seu espaço.", colSpan: "col-span-1 md:col-span-1" },
-    { icon: Key, title: "Chave-na-mão", text: "Visita, orçamento, fabrico e montagem. Sem surpresas ou subcontratação.", colSpan: "col-span-1 md:col-span-1" },
-    { icon: Clock, title: "Rigor nos Prazos", text: "Cumprimos o que prometemos. A sua obra não pára à espera.", colSpan: "col-span-1 md:col-span-1" },
+    { num: "01", title: "100% Por Medida", text: "Nenhum produto standard. Cada peça é fabricada especificamente para o seu espaço.", colSpan: "col-span-1 md:col-span-1" },
+    { num: "02", title: "Chave-na-mão", text: "Visita, orçamento, fabrico e montagem. Sem surpresas ou subcontratação.", colSpan: "col-span-1 md:col-span-1" },
+    { num: "03", title: "Rigor nos Prazos", text: "Cumprimos o que prometemos. A sua obra não pára à espera.", colSpan: "col-span-1 md:col-span-1" },
   ];
 
   const zones = ["Guimarães", "Braga", "Fafe", "Vizela", "Barcelos", "Famalicão", "Póvoa do Lanhoso", "Vieira do Minho", "Esposende", "Viana do Castelo", "Porto"];
@@ -36,7 +36,6 @@ export function PorqueNos() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[minmax(200px,auto)]">
           
           {features.map((f, i) => {
-            const Icon = f.icon;
             return (
               <motion.div
                 key={f.title}
@@ -47,16 +46,16 @@ export function PorqueNos() {
                 className={f.colSpan}
               >
                 <MagicCard 
-                  className="flex flex-col items-start p-8 bg-bg-sec/50 border-white/[0.05] hover:border-accent/30 transition-colors h-full"
+                  className="flex flex-col items-start p-8 bg-bg-sec/50 border-white/[0.05] hover:border-accent/30 transition-colors h-full relative overflow-hidden"
                   gradientColor="rgba(200, 169, 110, 0.15)"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6 border border-accent/20">
-                    <Icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
+                  <div className="font-display text-[3.5rem] leading-none text-white/5 mb-6 select-none font-bold tracking-tighter">
+                    {f.num}
                   </div>
-                  <h3 className="font-display text-xl mb-3 text-white">
+                  <h3 className="font-display text-xl mb-3 text-white relative z-10">
                     {f.title}
                   </h3>
-                  <p className="text-[0.9rem] text-dim leading-[1.6]">
+                  <p className="text-[0.9rem] text-dim leading-[1.6] relative z-10">
                     {f.text}
                   </p>
                 </MagicCard>
@@ -111,16 +110,16 @@ export function PorqueNos() {
             className="col-span-1 md:col-span-1 lg:col-span-1"
           >
             <MagicCard 
-              className="flex flex-col items-start p-8 bg-bg-sec/50 border-white/[0.05] hover:border-accent/30 transition-colors h-full"
+              className="flex flex-col items-start p-8 bg-bg-sec/50 border-white/[0.05] hover:border-accent/30 transition-colors h-full relative overflow-hidden"
               gradientColor="rgba(200, 169, 110, 0.15)"
             >
-              <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6 border border-accent/20">
-                <Building className="w-6 h-6 text-accent" strokeWidth={1.5} />
+              <div className="font-display text-[3.5rem] leading-none text-white/5 mb-6 select-none font-bold tracking-tighter">
+                04
               </div>
-              <h3 className="font-display text-xl mb-3 text-white">
+              <h3 className="font-display text-xl mb-3 text-white relative z-10">
                 Empresas & Retalho
               </h3>
-              <p className="text-[0.9rem] text-dim leading-[1.6]">
+              <p className="text-[0.9rem] text-dim leading-[1.6] relative z-10">
                 Da habitação ao hotel, do restaurante à unidade fabril. O mesmo nível de exigência.
               </p>
             </MagicCard>
