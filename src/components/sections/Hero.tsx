@@ -41,7 +41,7 @@ export function Hero() {
           
           <p className="text-[0.65rem] tracking-[0.25em] text-accent font-bold uppercase mt-6 mb-4">Estética · Proteção · Resistência · Durabilidade</p>
           <p className="mb-10 text-[0.95rem] text-[#e8e6e1]/70 leading-[1.8] max-w-[500px]">
-            Produzimos e montamos móveis para hotelaria e serralharias da construção civil em aço inox, vidro e ferro. Serralharias de aço inox em Guimarães e Arredores.
+            Produzimos e montamos móveis para hotelaria e serralharias da construção civil em aço inox, vidro e ferro. Serralharia de aço inox em Guimarães, Braga e arredores.
           </p>
           
           <div className="flex flex-wrap gap-4 items-center">

@@ -1,6 +1,6 @@
 export function Ticker() {
   const words = [
-    "Aço Inox", "·", "Ferro", "·", "Portas e Portões", "·", "Guardas e Marquises", "·", "Gradeamentos de Segurança", "·", "Escadas Suspensas", "·", "Corrimãos", "·", "Pilaretes", "·", "Estruturas Metálicas", "·", "Varandas", "·", "Caleiras e Tubagens", "·", "Mobiliário Inox", "·", "Portas Corta-Fogo", "·", "Asnas e Vigas", "·", "Alumínio", "·", "Vidro"
+    "Aço Inox", "·", "Ferro", "·", "Portas e Portões", "·", "Guardas e Marquises", "·", "Gradeamentos de Segurança", "·", "Escadas Suspensas", "·", "Corrimãos", "·", "Pilaretes", "·", "Estruturas Metálicas", "·", "Varandas e Varandins", "·", "Caleiras e Tubagens", "·", "Mobiliário Inox", "·", "Portas Corta-Fogo", "·", "Asnas, Pilares e Postes", "·", "Alumínio", "·", "Vidro", "·", "Grelhas em Aço Inox", "·", "Grades em Aço Inox", "·", "Fachadas Chapeadas em Inox", "·", "Portões de Garagem", "·", "Portões e Portas de Correr", "·", "Portas de Batente", "·", "Escadas em Caracol", "·", "Armações para Armazéns", "·", "Gradeamentos Fixos e Móveis", "·", "Objetos Decorativos em Inox"
   ];
 
   const content = (

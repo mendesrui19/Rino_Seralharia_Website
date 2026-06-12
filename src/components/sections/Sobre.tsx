@@ -38,7 +38,7 @@ export function Sobre() {
               Precisão.<br/>Durabilidade.<br/><span className="text-accent">Aço Inox.</span>
             </h2>
             <p className="section-desc text-[clamp(1rem,3vw,1.1rem)]">
-              A <strong>SERRALHARIA RINOS</strong> é uma empresa jovem e dinâmica sedeada na região de Guimarães-Braga, especializada em serralharias de <strong>AÇO INOX de elevada qualidade</strong>, direcionadas tanto a clientes particulares como a empresas.
+              A <strong>SERRALHARIA RINOS</strong> é uma empresa jovem e dinâmica sedeada em Vila Nova de Sande, Guimarães, a servir <strong>Guimarães, Braga e toda a região</strong>, especializada em serralharias de <strong>AÇO INOX de elevada qualidade</strong>, direcionadas tanto a clientes particulares como a empresas.
             </p>
             <p className="mt-4 text-text-dark-sec text-[clamp(0.8rem,2vw,0.88rem)] leading-[1.8] max-w-[520px]">
               Produzimos variados tipos de trabalhos de serralharia artística e de construção civil, com um foco no <strong>fabrico peça-a-peça</strong> de estruturas em inox, ferro e vidro.
