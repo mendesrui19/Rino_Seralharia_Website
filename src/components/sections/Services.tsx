@@ -53,7 +53,7 @@ export function Services() {
           </h2>
           <div className="w-12 h-[2px] bg-accent mx-auto mt-6 mb-6"></div>
           <p className="text-[#e8e6e1]/50 text-[0.92rem] leading-[1.8] max-w-[600px] mx-auto">
-            Oferecemos uma vasta gama de serviços em serralharia e trabalhamos com materiais de alta qualidade, garantindo durabilidade, segurança e design moderno em todas as nossas peças.
+            Oferecemos serralharia em Guimarães, Braga e região: corrimãos inox, portões ferro, grades, escadarias e estruturas metálicas — tudo por medida, com materiais de alta qualidade.
           </p>
         </motion.div>
 

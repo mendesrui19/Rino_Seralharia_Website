@@ -1,12 +1,12 @@
 import { ShimmerButton } from "../ui/shimmer-button";
 import { BlurIn } from "../ui/blur-in";
 import { motion } from "framer-motion";
+import { homeSeo } from "../../lib/seo-data";
 
 export function Hero() {
-
   return (
     <header className="relative min-h-[100svh] flex items-center pt-20 overflow-hidden bg-bg-base">
-      <motion.div 
+      <motion.div
         initial={{ scale: 1.02, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
@@ -20,30 +20,37 @@ export function Hero() {
           loop
           playsInline
           className="w-full h-full object-cover animate-img-ken"
+          aria-label="Oficina de serralharia em inox em Guimarães"
         />
       </motion.div>
 
       <div className="container relative z-10 mx-auto px-5 md:px-8 max-w-[1200px]">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.2, 0.65, 0.3, 0.9] }}
-          className="max-w-[700px]"
+          className="max-w-[760px]"
         >
-          <BlurIn
-            word="Aço Inox, Ferro"
-            className="font-display text-[clamp(3.5rem,8vw,6.5rem)] leading-[0.95] tracking-[0.01em] uppercase text-white m-0 text-left"
-          />
-          <BlurIn
-            word="& Vidro"
-            className="font-display text-[clamp(3.5rem,8vw,6.5rem)] leading-[0.95] tracking-[0.01em] uppercase text-accent m-0 text-left mt-2"
-          />
-          
-          <p className="text-[0.65rem] tracking-[0.25em] text-accent font-bold uppercase mt-6 mb-4">Estética · Proteção · Resistência · Durabilidade</p>
-          <p className="mb-10 text-[0.95rem] text-[#e8e6e1]/70 leading-[1.8] max-w-[500px]">
-            Produzimos e montamos móveis para hotelaria e serralharias da construção civil em aço inox, vidro e ferro. Serralharia de aço inox em Guimarães, Braga e arredores.
+          <h1 className="m-0">
+            <BlurIn
+              word={homeSeo.h1Line1}
+              as="span"
+              className="font-display text-[clamp(2.2rem,6.5vw,5rem)] leading-[1.02] tracking-[0.01em] uppercase text-white m-0 text-left block"
+            />
+            <BlurIn
+              word={homeSeo.h1Line2}
+              as="span"
+              className="font-display text-[clamp(1.8rem,5vw,3.5rem)] leading-[1.05] tracking-[0.04em] uppercase text-accent m-0 text-left mt-3 block"
+            />
+          </h1>
+
+          <p className="text-[0.65rem] tracking-[0.25em] text-accent font-bold uppercase mt-6 mb-4">
+            Guimarães · Braga · Porto · Famalicão · Maia · Minho
           </p>
-          
+          <p className="mb-10 text-[0.95rem] text-[#e8e6e1]/70 leading-[1.8] max-w-[560px]">
+            {homeSeo.description}
+          </p>
+
           <div className="flex flex-wrap gap-4 items-center">
             <ShimmerButton
               href="#contacto"
@@ -58,7 +65,7 @@ export function Hero() {
                 <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </ShimmerButton>
-            
+
             <a href="#obras" className="btn btn-ghost py-3.5">
               Ver Portfólio
             </a>

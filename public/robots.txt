@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.serralhariarinos.com/sitemap.xml
+# Site oficial: https://www.serralhariarinos.pt
+# Mapa de conteúdo para modelos de linguagem (LLMs / AEO)
+# https://www.serralhariarinos.pt/llms.txt
+
+Sitemap: https://www.serralhariarinos.pt/sitemap.xml

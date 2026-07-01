@@ -65,7 +65,7 @@ export function Sobre() {
             <div className="relative z-10 rounded-[2px] overflow-hidden border border-black/5">
               <img 
                 src="/images/1e2084ddc03398174fd039ad87934209_fit.jpg" 
-                alt="Serralharia Rinos" 
+                alt="Oficina de serralharia em inox da Serralharia Rinos em Guimarães" 
                 className="w-full h-auto aspect-[4/5] object-cover filter brightness-90 grayscale-[15%]"
               />
             </div>
@@ -79,7 +79,7 @@ export function Sobre() {
             >
               <img 
                 src="/images/23e710ebc18b2db42414f0c4805a3217_493x277_0x1_493x278_cropb059.jpg" 
-                alt="Carrinha de Serviço Serralharia Rinos" 
+                alt="Carrinha de serviço da Serralharia Rinos para montagem em Guimarães e Braga" 
                 className="w-full h-auto object-cover rounded-[1px]"
               />
             </motion.div>

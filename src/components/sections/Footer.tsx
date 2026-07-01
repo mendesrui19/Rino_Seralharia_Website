@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { locationPages } from "../../lib/seo-data";
 
 export function Footer() {
   return (
@@ -9,14 +11,17 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8, staggerChildren: 0.2 }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr] gap-12 mb-16"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr_1fr] gap-12 mb-16"
         >
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <div className="font-display text-4xl mb-1">Rinos</div>
             <div className="text-[0.65rem] tracking-[0.2em] uppercase text-accent font-bold mb-4">Serralharia Civil · Unipessoal, Lda</div>
             <p className="text-[0.88rem] text-dim leading-[1.8] max-w-[340px]">
-              Especialistas em aço inox, ferro e vidro no distrito de Braga. Fabrico por medida, serviço chave-na-mão desde 2016.
+              Serralharia em inox, ferro e vidro no Minho e Porto — Guimarães, Braga, Famalicão, Maia e área metropolitana. Fabrico por medida desde 2016.
             </p>
+            <a href="https://www.serralhariarinos.pt" className="text-[0.75rem] text-accent/80 hover:text-accent tracking-wider mt-3 inline-block">
+              www.serralhariarinos.pt
+            </a>
           </motion.div>
           
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
@@ -32,6 +37,22 @@ export function Footer() {
           </motion.div>
           
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <div className="font-display text-xl mb-6">Zonas</div>
+            <div className="flex flex-col gap-3 text-[0.88rem] text-dim max-h-[280px] overflow-y-auto pr-2">
+              {locationPages
+                .filter((p) => !p.service)
+                .map((p) => (
+                  <Link key={p.slug} to={p.path} className="hover:text-accent transition-colors w-fit">
+                    {p.h1}
+                  </Link>
+                ))}
+              <a href="#zonas" className="hover:text-accent transition-colors w-fit text-accent/80 pt-2 border-t border-white/5">
+                Ver todas as zonas →
+              </a>
+            </div>
+          </motion.div>
+          
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <div className="font-display text-xl mb-6">Contacto</div>
             <div className="flex flex-col gap-3 text-[0.88rem] text-dim">
               <a href="tel:+351913255102" className="hover:text-accent transition-colors w-fit text-white">913 255 102</a>
@@ -40,8 +61,9 @@ export function Footer() {
                 <a href="https://wa.me/351913148995" target="_blank" className="hover:text-accent transition-colors w-fit text-[0.82rem] flex items-center gap-1.5"><svg viewBox="0 0 16 16" fill="currentColor" className="w-3 h-3"><path d="M8 1.5A6.5 6.5 0 0114.5 8c0 1.8-.73 3.44-1.9 4.63L14 15l-2.5-.87A6.5 6.5 0 118 1.5zm-1.5 4c-.27 0-.7.1-.93.36-.24.27-.9.88-.9 2.14s.92 2.48 1.05 2.65c.12.17 1.8 2.75 4.36 3.75 2.56 1.01 2.56.67 3.02.63.47-.04 1.5-.62 1.72-1.21.2-.6.2-1.1.14-1.21-.07-.1-.24-.17-.5-.3-.27-.13-1.57-.77-1.82-.86-.24-.09-.42-.14-.6.14-.17.27-.67.86-.82 1.03-.15.17-.3.2-.56.07-.27-.14-1.12-.41-2.14-1.31-.79-.7-1.32-1.57-1.47-1.83-.16-.27-.02-.42.1-.55.12-.12.27-.3.4-.45.14-.14.18-.25.27-.42.09-.17.05-.32-.02-.45-.07-.14-.6-1.44-.82-1.97-.22-.53-.44-.46-.6-.46z"/></svg> WhatsApp (Sr. Nelson)</a>
               </div>
               <a href="https://facebook.com/serralharia.rinos" target="_blank" className="hover:text-accent transition-colors w-fit">Facebook</a>
+              <a href="#faq" className="hover:text-accent transition-colors w-fit">Perguntas Frequentes</a>
               <a href="#contacto" className="hover:text-accent transition-colors w-fit">Pedir Orçamento</a>
-              <span className="text-[0.78rem] mt-1 block leading-[1.5]">Guimarães, Braga<br/>e região do Minho</span>
+              <span className="text-[0.78rem] mt-1 block leading-[1.5]">Guimarães, Braga, Porto<br/>e todo o Norte de Portugal</span>
             </div>
           </motion.div>
         </motion.div>

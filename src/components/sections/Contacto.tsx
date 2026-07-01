@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ShimmerButton } from "../ui/shimmer-button";
+import { business } from "../../lib/seo-data";
 
 export function Contacto() {
   const [submitted, setSubmitted] = useState(false);
@@ -21,7 +22,7 @@ export function Contacto() {
     const mensagem = f.mensagem.value;
 
     const body = encodeURIComponent(`Nome: ${nome}\nTelefone: ${telefone}\nEmail: ${email}\nServiço: ${servico}\n\n${mensagem}`);
-    window.location.href = `mailto:geral@serralhariarinos.com?subject=${encodeURIComponent('Orçamento — Serralharia Rinos')}&body=${body}`;
+    window.location.href = `mailto:${business.email}?subject=${encodeURIComponent('Orçamento — Serralharia Rinos')}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -63,7 +64,10 @@ export function Contacto() {
                 </a>
               </div>
             </div>
-            <p className="section-desc mb-12">Tem um projeto em mente? Descreva-nos o que precisa e damos vida à sua ideia.</p>
+            <p className="section-desc mb-12">
+              Tem um projeto em mente? Atendemos Guimarães, Braga, Porto, Famalicão, Maia e toda a região Norte.
+              Descreva o que precisa e respondemos em menos de 24 horas.
+            </p>
 
             <div className="flex flex-col gap-6 mb-12">
               <div className="flex items-start gap-4">
@@ -82,7 +86,7 @@ export function Contacto() {
                 </div>
                 <div className="min-w-0">
                   <div className="text-[0.65rem] tracking-[0.15em] uppercase text-dim font-bold mb-1">E-mail</div>
-                  <div className="text-[0.95rem] truncate"><a href="mailto:geral@serralhariarinos.com" className="hover:text-accent transition-colors break-all">geral@<br/>serralhariarinos.com</a></div>
+                  <div className="text-[0.95rem] truncate"><a href="mailto:geral@serralhariarinos.pt" className="hover:text-accent transition-colors break-all">geral@<br/>serralhariarinos.pt</a></div>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -92,14 +96,26 @@ export function Contacto() {
                 <div className="flex-1">
                   <div className="text-[0.65rem] tracking-[0.15em] uppercase text-dim font-bold mb-1">Morada & GPS</div>
                   <div className="text-[0.95rem] text-[#e8e6e1]/80 leading-[1.6] mb-2">Rua do Romanço, nº 333, Lote 2 A<br/>Zona Ind. de Vila Nova<br/>4805-623 Vila Nova de Sande, Guimarães</div>
-                  <div className="text-[0.8rem] text-accent mb-4">+41º 02' 12.7", -8º 36' 16.5"</div>
-                  
-                  {/* Workshop Photo as Location Preview */}
+                  <div className="text-[0.8rem] text-accent mb-4">
+                    GPS: {business.geo.latitude}, {business.geo.longitude}
+                  </div>
+
+                  <div className="rounded-[4px] overflow-hidden border border-white/10 w-full max-w-[340px] aspect-[16/9] mb-4">
+                    <iframe
+                      title="Localização Serralharia Rinos — Guimarães, Braga, Porto"
+                      src={business.googleMapsEmbed}
+                      className="w-full h-full border-0 grayscale-[30%] hover:grayscale-0 transition-all duration-700"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      allowFullScreen
+                    />
+                  </div>
+
                   <div className="rounded-[4px] overflow-hidden border border-white/5 relative group w-full max-w-[340px] aspect-[16/9]">
                     <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none duration-500"></div>
                     <img 
                       src="/images/96e228a03a061457d15673e6198d0afa_493x277_0x1_493x278_cropb059.jpg" 
-                      alt="Instalações Serralharia Rinos" 
+                      alt="Oficina serralharia inox Guimarães — Serralharia Rinos, Vila Nova de Sande" 
                       className="absolute inset-0 w-full h-full object-cover filter brightness-90 grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
                     />
                     <div className="absolute bottom-3 left-3 bg-bg-sec/90 backdrop-blur-md px-3 py-1.5 border border-white/10 text-[0.6rem] uppercase tracking-widest text-white/90 z-20 rounded-sm">

@@ -1,33 +1,18 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { ShimmerButton } from "../ui/shimmer-button";
+import { business, googleReviews } from "../../lib/seo-data";
 
-const GOOGLE_REVIEW_URL = "https://search.google.com/local/writereview?placeid=ChIJu0EMzC77JA0RMJuoquTekW8";
-const GOOGLE_MAPS_URL = "https://www.google.com/maps?cid=8039451883530132272";
+const GOOGLE_REVIEW_URL = business.googleReviewUrl;
+const GOOGLE_MAPS_URL = business.googleMapsUrl;
 
-const reviews = [
-  {
-    name: "António José Leite Ferreira",
-    text: "Na data marcada à hora combinada a encomenda lá estava!",
-    stars: 5,
-    time: "há 4 anos",
-    source: "Google",
-  },
-  {
-    name: "Samuel Teixeira",
-    text: "Boa relação qualidade/preço. Ficou espectacular 5 estrelas recomendo. Positivo: Profissionalismo, Qualidade, Resposta rápida, Valor",
-    stars: 5,
-    time: "há 5 anos",
-    source: "Google",
-  },
-  {
-    name: "Cliente Verificado",
-    text: "Excelente serviço e qualidade nos trabalhos realizados. Muito profissionais e atentos aos detalhes.",
-    stars: 5,
-    time: "Google",
-    source: "Google",
-  },
-];
+const reviews = googleReviews.map((r) => ({
+  name: r.author,
+  text: r.text,
+  stars: r.rating,
+  time: "Google",
+  source: "Google",
+}));
 
 function StarRating({ count }: { count: number }) {
   return (
@@ -41,7 +26,7 @@ function StarRating({ count }: { count: number }) {
 
 export function Testemunhos() {
   return (
-    <section className="section-light py-[100px] bg-bg-light border-y border-black/[0.04] overflow-hidden">
+    <section id="testemunhos" className="section-light py-[100px] bg-bg-light border-y border-black/[0.04] overflow-hidden">
       <div className="container max-w-[1200px] mx-auto px-5 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

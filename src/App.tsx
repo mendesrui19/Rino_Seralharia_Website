@@ -1,32 +1,16 @@
-import { Nav } from "./components/layout/Nav";
-import { Hero } from "./components/sections/Hero";
-import { Ticker } from "./components/sections/Ticker";
-import { Sobre } from "./components/sections/Sobre";
-import { Services } from "./components/sections/Services";
-import { Obras } from "./components/sections/Obras";
-import { PorqueNos } from "./components/sections/PorqueNos";
-import { Testemunhos } from "./components/sections/Testemunhos";
-import { Contacto } from "./components/sections/Contacto";
-import { Footer } from "./components/sections/Footer";
-import { WhatsAppFloat } from "./components/ui/WhatsAppFloat";
+import { Routes, Route } from "react-router-dom";
+import { HomePage } from "./pages/HomePage";
+import { LocationPage } from "./components/pages/LocationPage";
+import { locationPages } from "./lib/seo-data";
 
 function App() {
   return (
-    <>
-      <Nav />
-      <main>
-        <Hero />
-        <Ticker />
-        <Sobre />
-        <Services />
-        <Obras />
-        <Testemunhos />
-        <PorqueNos />
-        <Contacto />
-      </main>
-      <Footer />
-      <WhatsAppFloat />
-    </>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      {locationPages.map((page) => (
+        <Route key={page.slug} path={page.path} element={<LocationPage page={page} />} />
+      ))}
+    </Routes>
   );
 }
 

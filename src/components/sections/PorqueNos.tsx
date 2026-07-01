@@ -3,7 +3,7 @@ import { RoadmapCard } from "../ui/roadmap-card";
 import { MagicCard } from "../ui/magic-card";
 import { MapPin } from "lucide-react";
 
-const zones = ["Guimarães", "Braga", "Fafe", "Vizela", "Barcelos", "Famalicão", "Póvoa do Lanhoso", "Vieira do Minho", "Esposende", "Viana do Castelo", "Porto"];
+import { coverageCityList, geoCoverage } from "../../lib/seo-data";
 
 export function PorqueNos() {
   return (
@@ -82,13 +82,18 @@ export function PorqueNos() {
                 <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center border border-black/10 shadow-sm">
                   <MapPin className="w-5 h-5 text-accent" strokeWidth={1.5} />
                 </div>
-                <div className="font-display text-xl tracking-[0.04em] text-text-dark">Zonas de Cobertura</div>
+                <div className="font-display text-xl tracking-[0.04em] text-text-dark">
+                  Zonas de Cobertura
+                  <span className="block text-[0.65rem] font-sans tracking-widest text-text-dark-sec mt-1 font-normal normal-case">
+                    Raio {geoCoverage.radiusKm} km · Minho até Porto
+                  </span>
+                </div>
               </div>
               
               <div className="w-[1px] h-12 bg-black/10 hidden lg:block mx-4"></div>
               
               <div className="flex flex-wrap gap-2.5 justify-center lg:justify-start">
-                {zones.map((zone) => (
+                {coverageCityList.map((zone) => (
                   <span key={zone} className="text-[0.75rem] uppercase tracking-widest text-text-dark-sec border border-black/[0.05] py-2 px-4 rounded-full bg-white hover:bg-accent/10 hover:border-accent/30 hover:text-accent transition-all duration-300 cursor-default">
                     {zone}
                   </span>
