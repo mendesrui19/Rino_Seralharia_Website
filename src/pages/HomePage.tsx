@@ -33,9 +33,9 @@ export function HomePage() {
         <Obras />
         <Testemunhos />
         <PorqueNos />
+        <Contacto />
         <LocalSEO />
         <FAQ />
-        <Contacto />
       </main>
       <Footer />
       <WhatsAppFloat />
